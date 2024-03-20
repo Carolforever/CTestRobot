@@ -1,0 +1,5 @@
+{
+    "make_cmd" : "sudo make",
+    "smatch_dir" : "/home/lsc20011130/smatch",
+    "proj_dir" : "/home/lsc20011130/NtyCo/core"
+}
