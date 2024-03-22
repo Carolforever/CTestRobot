@@ -1,0 +1,226 @@
+smatch check:
+
+acl.c:2373 ACLLoadFromFile() error: we previously assumed 'acl_args' could be null (see line 2365)
+ae.c:257 usUntilEarliestTimer() error: we previously assumed 'earliest' could be null (see line 251)
+bitops.c:1156 bitfieldGeneric() error: we previously assumed 'o' could be null (see line 1115)
+cluster_legacy.c:228 auxHumanNodenameSetter() error: we previously assumed 'n' could be null (see line 226)
+cluster_legacy.c:2038 getCorruptedNodeIdByteString() error: buffer overflow 'name_ptr' 40 <= 47
+connection.c:51 connTypeRegister() error: buffer overflow 'connTypes' 8 <= 8 (assuming for loop doesn't break)
+debug.c:2377 bugReportEnd() warn: inconsistent indenting
+debug.c:2583 get_ready_to_signal_threads_tids() warn: inconsistent indenting
+defrag.c:948 computeDefragCycles() warn: signed overflow undefined. '(server.active_defrag_cycle_min) + (frag_pct - (server.active_defrag_threshold_lower)) * ((server.active_defrag_cycle_max) - (server.active_defrag_cycle_min)) / ((server.active_defrag_threshold_upper) - (server.active_defrag_threshold_lower)) < server.active_defrag_cycle_min'
+eval.c:135 luaRedisDebugCommand() warn: potential negative subtraction from max '-1 - argc'
+eval.c:1629 ldbRepl() warn: inconsistent indenting
+evict.c:153 evictionPoolPopulate() error: uninitialized symbol 'o'.
+evict.c:162 evictionPoolPopulate() error: uninitialized symbol 'o'.
+evict.c:165 evictionPoolPopulate() warn: potential negative subtraction from max '(9223372036854775807 * 2 + 1) - dictGetVal(de)'
+evict.c:176 evictionPoolPopulate() error: uninitialized symbol 'idle'.
+evict.c:219 evictionPoolPopulate() error: uninitialized symbol 'idle'.
+expire.c:604 expireGenericCommand() warn: potential negative subtraction from max '9223372036854775807 - basetime'
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:437 sort_gp_desc() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+geo.c:463 geoaddCommand() warn: inconsistent indenting
+listpack.c:1508 lpRandomPairs() warn: inconsistent indenting
+lzf_c.c:123 lzf_compress() warn: inconsistent indenting
+module.c:4458 moduleListIteratorSeek() warn: inconsistent indenting
+module.c:4513 RM_ListPush() warn: inconsistent indenting
+module.c:4661 RM_ListInsert() error: we previously assumed 'key' could be null (see line 4655)
+module.c:5035 RM_ZsetRangeCurrentElement() error: uninitialized symbol 'str'.
+module.c:5471 RM_StreamAdd() error: we previously assumed 'key->value' could be null (see line 5466)
+module.c:6355 RM_Call() error: uninitialized symbol 'err'.
+module.c:6361 RM_Call() error: uninitialized symbol 'err'.
+module.c:7795 moduleBlockClient() warn: potential negative subtraction from max '9223372036854775807 - now'
+module.c:12737 maskModuleConfigFlags() warn: bitwise AND condition is false here
+networking.c:4560 getClientEvictionLimit() warn: always true condition '(maxmemory_clients_bytes <= (18446744073709551615)) => (0-u64max <= u64max)'
+notify.c:93 notifyKeyspaceEvent() warn: inconsistent indenting
+object.c:134 createStringObjectFromLongLongWithOptions() warn: always true condition '(value >= (-9223372036854775807 - 1)) => (s64min-s64max >= s64min)'
+object.c:134 createStringObjectFromLongLongWithOptions() warn: always true condition '(value <= 9223372036854775807) => (s64min-s64max <= s64max)'
+object.c:633 tryObjectEncodingEx() warn: inconsistent indenting
+object.c:803 getDoubleFromObject() error: uninitialized symbol 'value'.
+object.c:837 getLongDoubleFromObject() error: uninitialized symbol 'value'.
+object.c:870 getLongLongFromObject() error: uninitialized symbol 'value'.
+object.c:892 getLongFromObjectOrReply() warn: impossible condition '(value < (-9223372036854775807 - 1)) => (s64min-s64max < s64min)'
+object.c:892 getLongFromObjectOrReply() warn: impossible condition '(value > 9223372036854775807) => (s64min-s64max > s64max)'
+rdb.c:1635 rdbLoadCheckModuleValue() debug XXX: trouble parsing s64min c = s64min
+rdb.c:1635 rdbLoadCheckModuleValue() debug XXX: trouble parsing s64min c = s64min
+redis-benchmark.c:1489 parseOptions() warn: inconsistent indenting
+redis-check-aof.c:488 checkMultiPartAof() error: we previously assumed 'am->incr_aof_list' could be null (see line 474)
+redis-cli.c:974 cliOutputHelp() error: we previously assumed 'helpEntries' could be null (see line 966)
+redis-cli.c:2238 cliReadReply() warn: ignoring unreachable code.
+redis-cli.c:2285 cliReadReply() warn: ignoring unreachable code.
+redis-cli.c:4687 clusterManagerAddSlots() warn: variable dereferenced before check 'argv' (see line 4660)
+redis-cli.c:5276 clusterManagerFlushNodeConfig() error: we previously assumed 'err' could be null (see line 5258)
+redis-cli.c:8014 clusterManagerCommandImport() warn: variable dereferenced before check 'src_ctx' (see line 7899)
+redis-cli.c:9649 LRUTestMode() warn: ignoring unreachable code.
+replication.c:658 addReplyReplicationBacklog() error: we previously assumed 'node' could be null (see line 648)
+script_lua.c:1097 luaRedisSetReplCommand() warn: inconsistent indenting
+sds.c:337 sdsResize() warn: inconsistent indenting
+sentinel.c:1781 queueSentinelConfig() error: we previously assumed 'server.sentinel_config' could be null (see line 1767)
+sentinel.c:3176 getLogLevel() warn: inconsistent indenting
+server.c:2837 initListeners() warn: inconsistent indenting
+server.c:6279 redisAsciiArt() warn: inconsistent indenting
+server.c:7006 main() warn: inconsistent indenting
+sha256.c:48 sha256_transform() warn: inconsistent indenting
+t_hash.c:523 hashTypeDup() error: uninitialized symbol 'hobj'.
+t_list.c:443 listTypeDup() error: uninitialized symbol 'lobj'.
+t_set.c:580 setTypeDup() error: uninitialized symbol 'set'.
+t_set.c:897 spopWithCountCommand() error: uninitialized symbol 'len'.
+t_set.c:1061 srandmemberWithCountCommand() error: uninitialized symbol 'str'.
+t_set.c:1064 srandmemberWithCountCommand() error: uninitialized symbol 'len'.
+t_set.c:1222 srandmemberCommand() error: uninitialized symbol 'str'.
+t_set.c:1225 srandmemberCommand() error: uninitialized symbol 'len'.
+t_stream.c:152 streamDup() error: uninitialized symbol 'sobj'.
+t_stream.c:2695 xgroupCommand() error: we previously assumed 'cg' could be null (see line 2625)
+t_string.c:26 checkStringLength() warn: signed overflow undefined. 'size + append < size'
+t_string.c:26 checkStringLength() warn: signed overflow undefined. 'size + append < append'
+t_string.c:598 incrDecrCommand() warn: always true condition '(value >= (-9223372036854775807 - 1)) => (s64min-s64max >= s64min)'
+t_string.c:598 incrDecrCommand() warn: always true condition '(value <= 9223372036854775807) => (s64min-s64max <= s64max)'
+t_zset.c:1725 zsetDup() error: uninitialized symbol 'zobj'.
+t_zset.c:1999 zremrangeGenericCommand() error: uninitialized symbol 'start'.
+t_zset.c:1999 zremrangeGenericCommand() error: uninitialized symbol 'end'.
+t_zset.c:2018 zremrangeGenericCommand() error: uninitialized symbol 'start'.
+t_zset.c:2018 zremrangeGenericCommand() error: uninitialized symbol 'end'.
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2408 zuiCompareByRevCardinality() debug XXX: trouble parsing -9.223372e+18-9.223372e+18 c = .223372e+18-9.223372e+18
+t_zset.c:2849 zunionInterDiffGenericCommand() warn: inconsistent indenting
+t_zset.c:3894 zrankGenericCommand() error: uninitialized symbol 'score'.
+t_zset.c:4044 genericZpopCommand() error: uninitialized symbol 'ele'.
+t_zset.c:4056 genericZpopCommand() error: uninitialized symbol 'score'.
+t_zset.c:4390 zrandmemberWithCountCommand() debug XXX: trouble parsing -9.223372e+18 c = .223372e+18
+t_zset.c:4406 zrandmemberWithCountCommand() error: uninitialized symbol 'score'.
+timeout.c:173 getTimeoutFromObjectOrReply() warn: potential negative subtraction from max '9223372036854775807 - now'
+util.c:531 string2l() warn: impossible condition '(llval < (-9223372036854775807 - 1)) => (s64min-s64max < s64min)'
+util.c:531 string2l() warn: impossible condition '(llval > 9223372036854775807) => (s64min-s64max > s64max)'
+ziplist.c:1633 ziplistRandomPairs() error: uninitialized symbol 'value'.
+ziplist.c:1634 ziplistRandomPairs() warn: inconsistent indenting
+ziplist.c:1669 ziplistRandomPairsUnique() error: uninitialized symbol 'key'.
+
+cppcheck:
+
+/home/lsc20011130/CTestProj/redis/src/dict.c:1704:18: warning: %ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'. [invalidPrintfArgType_sint]
+            l += snprintf(buf + l, bufsize - l,
+                 ^
+/home/lsc20011130/CTestProj/redis/src/dict.c:1704:18: warning: %ld in format string (no. 2) requires 'long' but the argument type is 'unsigned long'. [invalidPrintfArgType_sint]
+            l += snprintf(buf + l, bufsize - l,
+                 ^
+/home/lsc20011130/CTestProj/redis/src/kvstore.c:474:9: warning: Assignment of function parameter has no effect outside the function. Did you forget dereferencing it? [uselessAssignmentPtrArg]
+        buf += l;
+        ^
+/home/lsc20011130/CTestProj/redis/src/rax.c:292:17: warning: Size of pointer 'dst' used instead of size of its data. [pointerSize]
+        memmove(dst,src,sizeof(void*));
+                ^
+/home/lsc20011130/CTestProj/redis/src/rax.c:321:13: warning: Size of pointer 'src' used instead of size of its data. [pointerSize]
+    memmove(src+shift+sizeof(raxNode*),src,sizeof(raxNode*)*(n->size-pos));
+            ^
+/home/lsc20011130/CTestProj/redis/src/rax.c:334:17: warning: Size of pointer 'src' used instead of size of its data. [pointerSize]
+        memmove(src+shift,src,sizeof(raxNode*)*pos);
+                ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4024:33: warning: Either the condition '!r' is redundant or there is possible null pointer dereference: r. [nullPointerRedundantCheck]
+                *err = zmalloc((r->len + 1) * sizeof(char));
+                                ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4021:9: note: Assuming that condition '!r' is not redundant
+    if (!r || (is_err = (r->type == REDIS_REPLY_ERROR))) {
+        ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4024:33: note: Null pointer dereference
+                *err = zmalloc((r->len + 1) * sizeof(char));
+                                ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4025:37: warning: Either the condition '!r' is redundant or there is possible null pointer dereference: r. [nullPointerRedundantCheck]
+                redis_strlcpy(*err, r->str,(r->len + 1));
+                                    ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4021:9: note: Assuming that condition '!r' is not redundant
+    if (!r || (is_err = (r->type == REDIS_REPLY_ERROR))) {
+        ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4025:37: note: Null pointer dereference
+                redis_strlcpy(*err, r->str,(r->len + 1));
+                                    ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4026:20: warning: Either the condition '!r' is redundant or there is possible null pointer dereference: r. [nullPointerRedundantCheck]
+            } else CLUSTER_MANAGER_PRINT_REPLY_ERROR(n, r->str);
+                   ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4021:9: note: Assuming that condition '!r' is not redundant
+    if (!r || (is_err = (r->type == REDIS_REPLY_ERROR))) {
+        ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:4026:20: note: Null pointer dereference
+            } else CLUSTER_MANAGER_PRINT_REPLY_ERROR(n, r->str);
+                   ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5264:33: warning: Either the condition 'reply==NULL' is redundant or there is possible null pointer dereference: reply. [nullPointerRedundantCheck]
+                *err = zmalloc((reply->len + 1) * sizeof(char));
+                                ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5262:19: note: Assuming that condition 'reply==NULL' is not redundant
+        if (reply == NULL || (is_err = (reply->type == REDIS_REPLY_ERROR))) {
+                  ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5264:33: note: Null pointer dereference
+                *err = zmalloc((reply->len + 1) * sizeof(char));
+                                ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5265:37: warning: Either the condition 'reply==NULL' is redundant or there is possible null pointer dereference: reply. [nullPointerRedundantCheck]
+                redis_strlcpy(*err, reply->str, (reply->len + 1));
+                                    ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5262:19: note: Assuming that condition 'reply==NULL' is not redundant
+        if (reply == NULL || (is_err = (reply->type == REDIS_REPLY_ERROR))) {
+                  ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:5265:37: note: Null pointer dereference
+                redis_strlcpy(*err, reply->str, (reply->len + 1));
+                                    ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:9808:98: warning: Either the condition 'hint!=NULL' is redundant or there is possible null pointer dereference: hint. [nullPointerRedundantCheck]
+            fprintf(stderr, "Test case '%s' FAILED: expected '%s', got '%s'\n", input, expected, hint);
+                                                                                                 ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:9802:21: note: Assuming that condition 'hint!=NULL' is not redundant
+        while (hint != NULL && sdslen(hint) > 0 && hint[sdslen(hint) - 1] == ' ') {
+                    ^
+/home/lsc20011130/CTestProj/redis/src/redis-cli.c:9808:98: note: Null pointer dereference
+            fprintf(stderr, "Test case '%s' FAILED: expected '%s', got '%s'\n", input, expected, hint);
+                                                                                                 ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:178:5: error: The address of local variable 'hash' is accessed at non-zero index. [objectIndex]
+    U64TO8_LE(out, b);
+    ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:129:31: note: Address of variable taken here.
+    uint8_t *out = (uint8_t*) &hash;
+                              ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:178:5: note: The address of local variable 'hash' is accessed at non-zero index.
+    U64TO8_LE(out, b);
+    ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:239:5: error: The address of local variable 'hash' is accessed at non-zero index. [objectIndex]
+    U64TO8_LE(out, b);
+    ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:190:31: note: Address of variable taken here.
+    uint8_t *out = (uint8_t*) &hash;
+                              ^
+/home/lsc20011130/CTestProj/redis/src/siphash.c:239:5: note: The address of local variable 'hash' is accessed at non-zero index.
+    U64TO8_LE(out, b);
+    ^
+/home/lsc20011130/CTestProj/redis/src/ziplist.c:1239:40: warning: Function 'ziplistGet' argument order different: declaration 'p, sval, slen, lval' definition 'p, sstr, slen, sval' [funcArgOrderDifferent]
+unsigned int ziplistGet(unsigned char *p, unsigned char **sstr, unsigned int *slen, long long *sval) {
+                                       ^
+/home/lsc20011130/CTestProj/redis/src/ziplist.h:52:40: note: Function 'ziplistGet' argument order different: declaration 'p, sval, slen, lval' definition 'p, sstr, slen, sval'
+unsigned int ziplistGet(unsigned char *p, unsigned char **sval, unsigned int *slen, long long *lval);
+                                       ^
+/home/lsc20011130/CTestProj/redis/src/ziplist.c:1239:40: note: Function 'ziplistGet' argument order different: declaration 'p, sval, slen, lval' definition 'p, sstr, slen, sval'
+unsigned int ziplistGet(unsigned char *p, unsigned char **sstr, unsigned int *slen, long long *sval) {
+                                       ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

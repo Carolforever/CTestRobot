@@ -1,5 +1,8 @@
 {
-    "make_cmd" : "sudo make",
+    "make_cmd" : "make",
     "smatch_dir" : "/home/lsc20011130/smatch",
-    "proj_dir" : "/home/lsc20011130/NtyCo/core"
+    "proj_dir" : "/home/lsc20011130/CTestProj/redis/src",
+    "proj_name" : "redis_src"
 }
+
+

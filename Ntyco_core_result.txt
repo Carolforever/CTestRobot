@@ -1,0 +1,22 @@
+smatch check:
+
+nty_schedule.c:144 nty_schedule_desched_wait() error: we previously assumed 'co' could be null (see line 141)
+nty_socket.c:350 init_hook() warn: inconsistent indenting
+
+cppcheck:
+
+/home/lsc20011130/CTestProj/Ntyco/core/nty_coroutine.c:63:2: error: Address of local auto-variable assigned to a function parameter. [autoVariables]
+ co->stack_size = top - &dummy;
+ ^
+/home/lsc20011130/CTestProj/Ntyco/core/nty_schedule.c:144:2: warning: Either the condition 'co!=NULL' is redundant or there is possible null pointer dereference: co. [nullPointerRedundantCheck]
+ co->status = 0;
+ ^
+/home/lsc20011130/CTestProj/Ntyco/core/nty_schedule.c:141:9: note: Assuming that condition 'co!=NULL' is not redundant
+ if (co != NULL) {
+        ^
+/home/lsc20011130/CTestProj/Ntyco/core/nty_schedule.c:140:22: note: Assignment 'co=_nty_coroutine_rbtree_wait_RB_FIND(&sched->waiting,&find_it)', assigned value is 0
+ nty_coroutine *co = RB_FIND(_nty_coroutine_rbtree_wait, &sched->waiting, &find_it);
+                     ^
+/home/lsc20011130/CTestProj/Ntyco/core/nty_schedule.c:144:2: note: Null pointer dereference
+ co->status = 0;
+ ^

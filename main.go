@@ -5,12 +5,16 @@ import (
 	"os"
 	"encoding/json"
 	"flag"
+	//"io"
+    //"fmt"
+
 )
 
 type Config struct {
 	Make_Cmd string `json:"make_cmd"`
 	Smatch_Dir string `json:"smatch_dir"`
 	Proj_Dir string `json:"proj_dir"`
+	Proj_Name string `json:"proj_name"`
 }
 
 var (

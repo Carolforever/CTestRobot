@@ -1,0 +1,448 @@
+smatch check:
+
+buffer.c:207 evbuffer_chain_free() warn: ignoring unreachable code.
+buffer.c:254 evbuffer_chain_free() warn: ignoring unreachable code.
+buffer.c:255 evbuffer_chain_free() warn: ignoring unreachable code.
+buffer.c:307 evbuffer_free_trailing_empty_chains() warn: ignoring unreachable code.
+buffer.c:321 evbuffer_chain_insert() warn: ignoring unreachable code.
+buffer.c:324 evbuffer_chain_insert() warn: ignoring unreachable code.
+buffer.c:325 evbuffer_chain_insert() warn: ignoring unreachable code.
+buffer.c:351 evbuffer_chain_pin_() warn: ignoring unreachable code.
+buffer.c:358 evbuffer_chain_unpin_() warn: ignoring unreachable code.
+buffer.c:488 evbuffer_run_callbacks() warn: ignoring unreachable code.
+buffer.c:574 evbuffer_decref_and_unlock_() warn: ignoring unreachable code.
+buffer.c:576 evbuffer_decref_and_unlock_() warn: ignoring unreachable code.
+buffer.c:714 evbuffer_reserve_space() warn: ignoring unreachable code.
+buffer.c:735 advance_last_with_data() warn: ignoring unreachable code.
+buffer.c:845 PRESERVE_PINNED() warn: ignoring unreachable code.
+buffer.c:855 PRESERVE_PINNED() warn: ignoring unreachable code.
+buffer.c:864 PRESERVE_PINNED() warn: ignoring unreachable code.
+buffer.c:919 APPEND_CHAIN() warn: ignoring unreachable code.
+buffer.c:920 APPEND_CHAIN() warn: ignoring unreachable code.
+buffer.c:976 PREPEND_CHAIN() warn: ignoring unreachable code.
+buffer.c:977 PREPEND_CHAIN() warn: ignoring unreachable code.
+buffer.c:903 COPY_CHAIN() warn: ignoring unreachable code.
+buffer.c:904 COPY_CHAIN() warn: ignoring unreachable code.
+buffer.c:887 RESTORE_PINNED() warn: ignoring unreachable code.
+buffer.c:828 ZERO_CHAIN() warn: ignoring unreachable code.
+buffer.c:940 APPEND_CHAIN_MULTICAST() warn: ignoring unreachable code.
+buffer.c:941 APPEND_CHAIN_MULTICAST() warn: ignoring unreachable code.
+buffer.c:1171 evbuffer_drain() warn: ignoring unreachable code.
+buffer.c:1180 evbuffer_drain() warn: ignoring unreachable code.
+buffer.c:1229 evbuffer_copyout_from() warn: potential negative subtraction from max '(9223372036854775807) - pos->pos'
+buffer.c:1265 evbuffer_copyout_from() warn: ignoring unreachable code.
+buffer.c:1269 evbuffer_copyout_from() warn: ignoring unreachable code.
+buffer.c:1270 evbuffer_copyout_from() warn: ignoring unreachable code.
+buffer.c:1323 evbuffer_remove_buffer() warn: ignoring unreachable code.
+buffer.c:1405 evbuffer_pullup() warn: ignoring unreachable code.
+buffer.c:1789 evbuffer_add() warn: ignoring unreachable code.
+buffer.c:1881 evbuffer_prepend() warn: ignoring unreachable code.
+buffer.c:1921 evbuffer_prepend() warn: ignoring unreachable code.
+buffer.c:1940 evbuffer_chain_align() warn: ignoring unreachable code.
+buffer.c:1941 evbuffer_chain_align() warn: ignoring unreachable code.
+buffer.c:1967 evbuffer_expand_singlechain() warn: ignoring unreachable code.
+buffer.c:2050 evbuffer_expand_singlechain() warn: ignoring unreachable code.
+buffer.c:2066 evbuffer_expand_singlechain() warn: ignoring unreachable code.
+buffer.c:2067 evbuffer_expand_singlechain() warn: ignoring unreachable code.
+buffer.c:2081 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2082 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2102 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2127 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2144 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2157 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2160 evbuffer_expand_fast_() warn: ignoring unreachable code.
+buffer.c:2254 evbuffer_read_setup_vecs_() warn: ignoring unreachable code.
+buffer.c:2262 evbuffer_read_setup_vecs_() warn: ignoring unreachable code.
+buffer.c:2268 evbuffer_read_setup_vecs_() warn: ignoring unreachable code.
+buffer.c:2447 evbuffer_write_iovec() warn: ignoring unreachable code.
+buffer.c:2671 evbuffer_ptr_set() warn: ignoring unreachable code.
+buffer.c:2706 evbuffer_ptr_memcmp() warn: ignoring unreachable code.
+buffer.c:3190 evbuffer_file_segment_add_cleanup_cb() warn: ignoring unreachable code.
+buffer.c:3204 evbuffer_file_segment_free() warn: ignoring unreachable code.
+bufferevent.c:718 bufferevent_decref_and_unlock_() warn: ignoring unreachable code.
+bufferevent_filter.c:232 be_filter_unlink() warn: ignoring unreachable code.
+bufferevent_filter.c:125 upcast() warn: ignoring unreachable code.
+bufferevent_filter.c:261 be_filter_destruct() warn: ignoring unreachable code.
+bufferevent_filter.c:448 be_filter_read_nolock_() warn: ignoring unreachable code.
+bufferevent_filter.c:539 be_filter_writecb() warn: ignoring unreachable code.
+bufferevent_filter.c:560 be_filter_eventcb() warn: ignoring unreachable code.
+bufferevent_filter.c:578 be_filter_flush() warn: ignoring unreachable code.
+bufferevent_openssl.c:156 bio_bufferevent_write() warn: ignoring unreachable code.
+bufferevent_pair.c:62 upcast() warn: ignoring unreachable code.
+bufferevent_ratelim.c:456 bev_group_random_element_() warn: ignoring unreachable code.
+bufferevent_ratelim.c:608 bufferevent_set_rate_limit() warn: ignoring unreachable code.
+bufferevent_ratelim.c:727 bufferevent_rate_limit_group_free() warn: ignoring unreachable code.
+bufferevent_ratelim.c:978 bufferevent_decrement_read_limit() warn: ignoring unreachable code.
+bufferevent_ratelim.c:1007 bufferevent_decrement_write_limit() warn: ignoring unreachable code.
+bufferevent_ratelim.c:1070 bufferevent_rate_limit_group_get_totals() warn: ignoring unreachable code.
+bufferevent_sock.c:124 bufferevent_socket_set_conn_address_() warn: ignoring unreachable code.
+bufferevent_sock.c:606 be_socket_destruct() warn: ignoring unreachable code.
+bufferevent_sock.c:630 be_socket_setfd() warn: ignoring unreachable code.
+bufferevent_ssl.c:112 bufferevent_ssl_upcast() warn: ignoring unreachable code.
+bufferevent_ssl.c:718 do_handshake() warn: ignoring unreachable code.
+bufferevent_ssl.c:1091 bufferevent_ssl_new_impl() error: we previously assumed 'bev_ssl' could be null (see line 1084)
+epoll.c:319 epoll_apply_one_change() warn: ignoring unreachable code.
+epoll.c:534 epoll_dispatch() warn: ignoring unreachable code.
+evdns.c:572 evdns_add_tcp_client() warn: ignoring unreachable code.
+evdns.c:651 request_find_from_trans_id() warn: ignoring unreachable code.
+evdns.c:684 nameserver_probe_failed() warn: ignoring unreachable code.
+evdns.c:722 request_swap_ns() warn: ignoring unreachable code.
+evdns.c:739 nameserver_failed() warn: ignoring unreachable code.
+evdns.c:751 nameserver_failed() warn: ignoring unreachable code.
+evdns.c:829 nameserver_up() warn: ignoring unreachable code.
+evdns.c:861 request_finished() warn: ignoring unreachable code.
+evdns.c:893 request_finished() warn: ignoring unreachable code.
+evdns.c:925 request_reissue() warn: ignoring unreachable code.
+evdns.c:926 request_reissue() warn: ignoring unreachable code.
+evdns.c:952 evdns_requests_pump_waiting_queue() warn: ignoring unreachable code.
+evdns.c:957 evdns_requests_pump_waiting_queue() warn: ignoring unreachable code.
+evdns.c:1021 reply_run_callback() warn: ignoring unreachable code.
+evdns.c:1040 reply_schedule_callback() warn: ignoring unreachable code.
+evdns.c:1070 client_retransmit_through_tcp() warn: ignoring unreachable code.
+evdns.c:1103 reply_handle() warn: ignoring unreachable code.
+evdns.c:1104 reply_handle() warn: ignoring unreachable code.
+evdns.c:1270 reply_parse() warn: ignoring unreachable code.
+evdns.c:1283 reply_parse() warn: ignoring unreachable code.
+evdns.c:1474 request_parse() warn: ignoring unreachable code.
+evdns.c:1598 transaction_id_pick() warn: ignoring unreachable code.
+evdns.c:1616 nameserver_pick() warn: ignoring unreachable code.
+evdns.c:1640 nameserver_pick() warn: ignoring unreachable code.
+evdns.c:1656 nameserver_read() warn: ignoring unreachable code.
+evdns.c:1700 server_udp_port_read() warn: ignoring unreachable code.
+evdns.c:1726 server_send_response() warn: ignoring unreachable code.
+evdns.c:1727 server_send_response() warn: ignoring unreachable code.
+evdns.c:1752 server_port_flush() warn: ignoring unreachable code.
+evdns.c:1765 server_port_flush() warn: ignoring unreachable code.
+evdns.c:1787 nameserver_write_waiting() warn: ignoring unreachable code.
+evdns.c:2130 tcp_read_message() warn: ignoring unreachable code.
+evdns.c:2131 tcp_read_message() warn: ignoring unreachable code.
+evdns.c:2177 server_tcp_read_packet_cb() warn: ignoring unreachable code.
+evdns.c:2213 server_tcp_event_cb() warn: ignoring unreachable code.
+evdns.c:2486 evdns_server_request_format_response() warn: ignoring unreachable code.
+evdns.c:2653 server_port_free() warn: ignoring unreachable code.
+evdns.c:2654 server_port_free() warn: ignoring unreachable code.
+evdns.c:2655 server_port_free() warn: ignoring unreachable code.
+evdns.c:2777 evdns_request_transmit_to() warn: ignoring unreachable code.
+evdns.c:2778 evdns_request_transmit_to() warn: ignoring unreachable code.
+evdns.c:2824 evdns_tcp_connect_if_disconnected() warn: ignoring unreachable code.
+evdns.c:2844 client_tcp_read_packet_cb() warn: ignoring unreachable code.
+evdns.c:2875 client_tcp_event_cb() warn: ignoring unreachable code.
+evdns.c:2877 client_tcp_event_cb() warn: ignoring unreachable code.
+evdns.c:2888 client_tcp_event_cb() warn: ignoring unreachable code.
+evdns.c:2908 evdns_request_transmit_through_tcp() warn: ignoring unreachable code.
+evdns.c:2909 evdns_request_transmit_through_tcp() warn: ignoring unreachable code.
+evdns.c:2946 evdns_request_transmit() warn: ignoring unreachable code.
+evdns.c:2947 evdns_request_transmit() warn: ignoring unreachable code.
+evdns.c:2951 evdns_request_transmit() warn: ignoring unreachable code.
+evdns.c:3039 nameserver_send_probe() warn: ignoring unreachable code.
+evdns.c:3068 evdns_transmit() warn: ignoring unreachable code.
+evdns.c:3214 evdns_nameserver_add_impl_() warn: ignoring unreachable code.
+evdns.c:3388 evdns_base_nameserver_sockaddr_add() warn: ignoring unreachable code.
+evdns.c:3448 evdns_request_remove() warn: ignoring unreachable code.
+evdns.c:3449 evdns_request_remove() warn: ignoring unreachable code.
+evdns.c:3485 evdns_request_insert() warn: ignoring unreachable code.
+evdns.c:3486 evdns_request_insert() warn: ignoring unreachable code.
+evdns.c:3526 request_new() warn: ignoring unreachable code.
+evdns.c:3595 request_clone() warn: ignoring unreachable code.
+evdns.c:3596 request_clone() warn: ignoring unreachable code.
+evdns.c:3621 request_submit() warn: ignoring unreachable code.
+evdns.c:3622 request_submit() warn: ignoring unreachable code.
+evdns.c:3661 evdns_cancel_request() warn: ignoring unreachable code.
+evdns.c:3757 evdns_base_resolve_reverse() warn: ignoring unreachable code.
+evdns.c:3797 evdns_base_resolve_reverse_ipv6() warn: ignoring unreachable code.
+evdns.c:3806 evdns_base_resolve_reverse_ipv6() warn: ignoring unreachable code.
+evdns.c:3912 search_postfix_add() warn: ignoring unreachable code.
+evdns.c:3931 search_reverse() warn: ignoring unreachable code.
+evdns.c:3973 search_set_from_hostname() warn: ignoring unreachable code.
+evdns.c:4008 search_make_new() warn: ignoring unreachable code.
+evdns.c:4015 search_request_new() warn: ignoring unreachable code.
+evdns.c:4016 search_request_new() warn: ignoring unreachable code.
+evdns.c:4017 search_request_new() warn: ignoring unreachable code.
+evdns.c:4035 search_request_new() warn: ignoring unreachable code.
+evdns.c:4066 search_try_next() warn: ignoring unreachable code.
+evdns.c:4106 search_request_finished() warn: ignoring unreachable code.
+evdns.c:4127 evdns_resolv_set_defaults() warn: ignoring unreachable code.
+evdns.c:4204 evdns_base_set_max_requests_inflight() warn: ignoring unreachable code.
+evdns.c:4208 evdns_base_set_max_requests_inflight() warn: ignoring unreachable code.
+evdns.c:4298 evdns_base_set_option_impl() warn: ignoring unreachable code.
+evdns.c:4440 resolv_conf_parse_line() warn: ignoring unreachable code.
+evdns.c:5059 evdns_base_parse_hosts_line() warn: ignoring unreachable code.
+evdns.c:5089 evdns_base_parse_hosts_line() warn: ignoring unreachable code.
+evdns.c:5111 evdns_base_load_hosts_impl() warn: ignoring unreachable code.
+evdns.c:5277 evdns_getaddrinfo_timeout_cb() warn: ignoring unreachable code.
+evdns.c:5334 evdns_getaddrinfo_gotresolve() warn: ignoring unreachable code.
+evdns.c:5430 evdns_getaddrinfo_gotresolve() warn: ignoring unreachable code.
+event.c:392 event_debug_assert_socket_nonblocking_() warn: ignoring unreachable code.
+event.c:422 gettime() warn: ignoring unreachable code.
+event.c:518 event_init() warn: ignoring unreachable code.
+event.c:501 event_callback_to_event() warn: ignoring unreachable code.
+event.c:941 event_base_free_() warn: ignoring unreachable code.
+event.c:943 event_base_free_() warn: ignoring unreachable code.
+event.c:1078 event_reinit() warn: ignoring unreachable code.
+event.c:1546 event_base_init_common_timeout() warn: ignoring unreachable code.
+event.c:1590 event_base_init_common_timeout() warn: ignoring unreachable code.
+event.c:1677 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1713 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1717 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1723 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1740 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1743 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1754 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1760 event_process_active_single_queue() warn: ignoring unreachable code.
+event.c:1615 event_persist_closure() warn: ignoring unreachable code.
+event.c:1859 event_base_get_method() warn: ignoring unreachable code.
+event.c:1866 event_base_get_signal_method() warn: ignoring unreachable code.
+event.c:2250 event_set() warn: ignoring unreachable code.
+event.c:2609 evthread_notify_base() warn: ignoring unreachable code.
+event.c:2625 event_remove_timer_nolock_() warn: ignoring unreachable code.
+event.c:2670 event_add_nolock_() warn: ignoring unreachable code.
+event.c:2683 event_add_nolock_() warn: ignoring unreachable code.
+event.c:2888 event_del_nolock_() warn: ignoring unreachable code.
+event.c:2899 event_del_nolock_() warn: ignoring unreachable code.
+event.c:2993 event_active_nolock_() warn: ignoring unreachable code.
+event.c:3003 event_active_nolock_() warn: ignoring unreachable code.
+event.c:3047 event_active_later_nolock_() warn: ignoring unreachable code.
+event.c:3082 event_callback_activate_nolock_() warn: ignoring unreachable code.
+event.c:3148 event_callback_cancel_nolock_() warn: ignoring unreachable code.
+event.c:3237 timeout_next() warn: ignoring unreachable code.
+event.c:3238 timeout_next() warn: ignoring unreachable code.
+event.c:3292 event_queue_remove_inserted() warn: ignoring unreachable code.
+event.c:3296 event_queue_remove_inserted() warn: ignoring unreachable code.
+event.c:3304 event_queue_remove_active() warn: ignoring unreachable code.
+event.c:3308 event_queue_remove_active() warn: ignoring unreachable code.
+event.c:3320 event_queue_remove_active_later() warn: ignoring unreachable code.
+event.c:3324 event_queue_remove_active_later() warn: ignoring unreachable code.
+event.c:3335 event_queue_remove_timeout() warn: ignoring unreachable code.
+event.c:3339 event_queue_remove_timeout() warn: ignoring unreachable code.
+event.c:3414 insert_common_timeout_inorder() warn: ignoring unreachable code.
+event.c:3429 event_queue_insert_inserted() warn: ignoring unreachable code.
+event.c:3434 event_queue_insert_inserted() warn: ignoring unreachable code.
+event.c:3445 event_queue_insert_active() warn: ignoring unreachable code.
+event.c:3458 event_queue_insert_active() warn: ignoring unreachable code.
+event.c:3466 event_queue_insert_active_later() warn: ignoring unreachable code.
+event.c:3476 event_queue_insert_active_later() warn: ignoring unreachable code.
+event.c:3483 event_queue_insert_timeout() warn: ignoring unreachable code.
+event.c:3488 event_queue_insert_timeout() warn: ignoring unreachable code.
+event.c:3508 event_queue_make_later_events_active() warn: ignoring unreachable code.
+event.c:3513 event_queue_make_later_events_active() warn: ignoring unreachable code.
+event.c:3949 event_base_del_virtual_() warn: ignoring unreachable code.
+event.c:4045 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4046 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4047 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4055 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4055 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4055 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4055 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4055 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4059 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4060 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4061 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4062 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4071 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4071 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4071 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4071 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4071 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4073 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4074 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4082 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+event.c:4086 event_base_assert_ok_nolock_() warn: ignoring unreachable code.
+evmap.c:282 evmap_io_add_() warn: ignoring unreachable code.
+evmap.c:365 evmap_io_del_() warn: ignoring unreachable code.
+evmap.c:388 evmap_io_del_() warn: ignoring unreachable code.
+evmap.c:393 evmap_io_del_() warn: ignoring unreachable code.
+evmap.c:398 evmap_io_del_() warn: ignoring unreachable code.
+evmap.c:615 evmap_io_reinit_iter_fn() warn: ignoring unreachable code.
+evmap.c:746 event_changelist_assert_ok_foreach_iter_fn() warn: ignoring unreachable code.
+evmap.c:758 event_changelist_assert_ok() warn: ignoring unreachable code.
+evmap.c:762 event_changelist_assert_ok() warn: ignoring unreachable code.
+evmap.c:764 event_changelist_assert_ok() warn: ignoring unreachable code.
+evmap.c:765 event_changelist_assert_ok() warn: ignoring unreachable code.
+evmap.c:791 event_changelist_remove_all_() warn: ignoring unreachable code.
+evmap.c:845 event_changelist_get_or_construct() warn: ignoring unreachable code.
+evmap.c:861 event_changelist_get_or_construct() warn: ignoring unreachable code.
+evmap.c:961 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:961 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:961 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:961 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:964 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:965 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:966 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:967 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:976 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:977 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:978 evmap_io_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:991 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:991 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:991 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:991 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:994 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:995 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:996 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evmap.c:997 evmap_signal_check_integrity_fn() warn: ignoring unreachable code.
+evrpc.c:102 evrpc_free() warn: ignoring unreachable code.
+evrpc.c:110 evrpc_free() warn: ignoring unreachable code.
+evrpc.c:114 evrpc_free() warn: ignoring unreachable code.
+evrpc.c:136 evrpc_add_hook() warn: ignoring unreachable code.
+evrpc.c:140 evrpc_add_hook() warn: ignoring unreachable code.
+evrpc.c:181 evrpc_remove_hook() warn: ignoring unreachable code.
+evrpc.c:271 evrpc_unregister_rpc() warn: ignoring unreachable code.
+evrpc.c:322 evrpc_request_cb() warn: ignoring unreachable code.
+evrpc.c:345 evrpc_request_cb_closure() warn: ignoring unreachable code.
+evrpc.c:385 evrpc_reqstate_free_() warn: ignoring unreachable code.
+evrpc.c:409 evrpc_request_done() warn: ignoring unreachable code.
+evrpc.c:446 evrpc_request_done() warn: ignoring unreachable code.
+evrpc.c:478 evrpc_request_done_closure() warn: ignoring unreachable code.
+evrpc.c:563 evrpc_pool_free() warn: ignoring unreachable code.
+evrpc.c:568 evrpc_pool_free() warn: ignoring unreachable code.
+evrpc.c:583 evrpc_pool_add_connection() warn: ignoring unreachable code.
+evrpc.c:700 evrpc_schedule_request() warn: ignoring unreachable code.
+evrpc.c:808 evrpc_make_request() warn: ignoring unreachable code.
+evrpc.c:901 evrpc_reply_done() warn: ignoring unreachable code.
+evrpc.c:974 evrpc_request_timeout() warn: ignoring unreachable code.
+evrpc.c:987 evrpc_meta_data_free() warn: ignoring unreachable code.
+evrpc.c:1002 evrpc_hook_meta_new_() warn: ignoring unreachable code.
+evrpc.c:1040 evrpc_hook_add_meta() warn: ignoring unreachable code.
+evrpc.c:1042 evrpc_hook_add_meta() warn: ignoring unreachable code.
+evrpc.c:1045 evrpc_hook_add_meta() warn: ignoring unreachable code.
+evthread.c:220 debug_lock_free() warn: ignoring unreachable code.
+evthread.c:221 debug_lock_free() warn: ignoring unreachable code.
+evthread.c:222 debug_lock_free() warn: ignoring unreachable code.
+evthread.c:236 evthread_debug_lock_mark_locked() warn: ignoring unreachable code.
+evthread.c:239 evthread_debug_lock_mark_locked() warn: ignoring unreachable code.
+evthread.c:244 evthread_debug_lock_mark_locked() warn: ignoring unreachable code.
+evthread.c:255 debug_lock_lock() warn: ignoring unreachable code.
+evthread.c:257 debug_lock_lock() warn: ignoring unreachable code.
+evthread.c:269 evthread_debug_lock_mark_unlocked() warn: ignoring unreachable code.
+evthread.c:271 evthread_debug_lock_mark_unlocked() warn: ignoring unreachable code.
+evthread.c:273 evthread_debug_lock_mark_unlocked() warn: ignoring unreachable code.
+evthread.c:277 evthread_debug_lock_mark_unlocked() warn: ignoring unreachable code.
+evthread.c:282 evthread_debug_lock_mark_unlocked() warn: ignoring unreachable code.
+evthread.c:301 debug_cond_wait() warn: ignoring unreachable code.
+evthread.c:302 debug_cond_wait() warn: ignoring unreachable code.
+evthread.c:303 debug_cond_wait() warn: ignoring unreachable code.
+evthread.c:376 evthread_setup_global_lock_() warn: ignoring unreachable code.
+evthread.c:381 evthread_setup_global_lock_() warn: ignoring unreachable code.
+evthread.c:400 evthread_setup_global_lock_() warn: ignoring unreachable code.
+evthread.c:405 evthread_setup_global_lock_() warn: ignoring unreachable code.
+evthread.c:407 evthread_setup_global_lock_() warn: ignoring unreachable code.
+evutil.c:165 evutil_read_file_() warn: ignoring unreachable code.
+evutil.c:166 evutil_read_file_() warn: ignoring unreachable code.
+evutil.c:198 evutil_read_file_() warn: ignoring unreachable code.
+evutil.c:998 evutil_check_interfaces() warn: ignoring unreachable code.
+evutil.c:1004 evutil_check_interfaces() warn: ignoring unreachable code.
+evutil.c:1048 evutil_new_addrinfo_() warn: ignoring unreachable code.
+http.c:843 evhttp_connection_fail_() warn: ignoring unreachable code.
+http.c:1070 evhttp_handle_chunked_read() warn: impossible condition '(req->ntoread > (9223372036854775807)) => (s64min-s64max > s64max)'
+http.c:1301 evhttp_write_connectioncb() warn: ignoring unreachable code.
+http.c:1303 evhttp_write_connectioncb() warn: ignoring unreachable code.
+http.c:1379 evhttp_connection_set_local_address() warn: ignoring unreachable code.
+http.c:1390 evhttp_connection_set_local_port() warn: ignoring unreachable code.
+http.c:1403 evhttp_request_dispatch() warn: ignoring unreachable code.
+http.c:1409 evhttp_request_dispatch() warn: ignoring unreachable code.
+http.c:1451 evhttp_connection_reset_hard_() warn: ignoring unreachable code.
+http.c:1456 evhttp_connection_reset_hard_() warn: ignoring unreachable code.
+http.c:1459 evhttp_connection_reset_hard_() warn: ignoring unreachable code.
+http.c:1510 evhttp_connection_cb_cleanup() warn: ignoring unreachable code.
+http.c:1633 evhttp_error_cb() warn: ignoring unreachable code.
+http.c:1638 evhttp_error_cb() warn: ignoring unreachable code.
+http.c:2411 evhttp_get_body() warn: inconsistent indenting
+http.c:2689 evhttp_connection_set_base() warn: ignoring unreachable code.
+http.c:2690 evhttp_connection_set_base() warn: ignoring unreachable code.
+http.c:2814 evhttp_connection_connect_() warn: ignoring unreachable code.
+http.c:2909 evhttp_make_request() warn: ignoring unreachable code.
+http.c:2911 evhttp_make_request() warn: ignoring unreachable code.
+http.c:3022 evhttp_send_done() warn: ignoring unreachable code.
+http.c:3118 evhttp_send() warn: ignoring unreachable code.
+http.c:3542 evhttp_uridecode() warn: ignoring unreachable code.
+http.c:4906 scheme_ok() warn: ignoring unreachable code.
+http.c:5025 parse_authority() warn: ignoring unreachable code.
+http.c:5077 parse_authority() warn: ignoring unreachable code.
+http.c:5283 evhttp_uri_parse_with_flags() warn: ignoring unreachable code.
+listener.c:450 listener_read_cb() warn: ignoring unreachable code.
+poll.c:238 poll_add() warn: ignoring unreachable code.
+poll.c:301 poll_del() warn: ignoring unreachable code.
+poll.c:335 poll_del() warn: ignoring unreachable code.
+poll.c:336 poll_del() warn: ignoring unreachable code.
+select.c:258 select_add() warn: ignoring unreachable code.
+select.c:305 select_del() warn: ignoring unreachable code.
+signal.c:294 evsig_add() warn: ignoring unreachable code.
+signal.c:374 evsig_del() warn: ignoring unreachable code.
+signalfd.c:59 sigfd_cb() warn: ignoring unreachable code.
+signalfd.c:60 sigfd_cb() warn: ignoring unreachable code.
+signalfd.c:61 sigfd_cb() warn: ignoring unreachable code.
+signalfd.c:74 sigfd_free_sigevent() warn: ignoring unreachable code.
+signalfd.c:77 sigfd_free_sigevent() warn: ignoring unreachable code.
+signalfd.c:92 sigfd_add() warn: ignoring unreachable code.
+signalfd.c:94 sigfd_add() warn: ignoring unreachable code.
+signalfd.c:177 sigfd_del() warn: ignoring unreachable code.
+signalfd.c:179 sigfd_del() warn: ignoring unreachable code.
+signalfd.c:207 sigfd_init_() warn: ignoring unreachable code.
+
+cppcheck:
+
+/home/lsc20011130/libevent-2.2.1-alpha-dev/minheap-internal.h:107:45: error: syntax error [syntaxError]
+  if (e->ev_timeout_pos.min_heap_idx > 0 && min_heap_elem_greater(s->p[parent], last))
+                                            ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/evutil_time.c:236:44: error: syntax error: <) [syntaxError]
+ if (evutil_timercmp(tv, &base->last_time, <)) {
+                                           ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/http.c:3435:18: warning: Invalid test for overflow 'uri+slen<uri'. Condition is always false unless there is overflow, and overflow is undefined behaviour. [invalidTestForOverflow]
+  if (uri + slen < uri) {
+                 ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/http.c:1451:2: warning: Conversion of string literal "setfd" to bool always evaluates to true. [incorrectStringBooleanError]
+ EVUTIL_ASSERT(!err && "setfd");
+ ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/http.c:1456:2: warning: Conversion of string literal "drain output" to bool always evaluates to true. [incorrectStringBooleanError]
+ EVUTIL_ASSERT(!err && "drain output");
+ ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/http.c:1459:2: warning: Conversion of string literal "drain input" to bool always evaluates to true. [incorrectStringBooleanError]
+ EVUTIL_ASSERT(!err && "drain input");
+ ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress.c:2902:2: error: syntax error [syntaxError]
+ tt_assert(evutil_timercmp(&tv2, &now, >));
+ ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_http.c:5674:4: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+   tt_abort_printf(("Sub-test %d failed",
+   ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_rpc.c:97:1: error: There is an unknown macro here somewhere. Configuration is required. If EVRPC_HEADER is a macro then please configure it. [unknownMacro]
+EVRPC_HEADER(Message, msg, kill)
+^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_thread.c:483:2: warning: %u in format string (no. 1) requires 'unsigned int' but the argument type is 'signed int'. [invalidPrintfArgType_uint]
+ TT_BLATHER(("elapsed time, %u usec", elapsed_usec));
+ ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_util.c:1462:3: error: syntax error: <) [syntaxError]
+  tt_assert(evutil_timercmp(&tv[i], &tv[i+1], <));
+  ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_ws.c:318:15: warning: Either the condition 'if(line)' is redundant or there is possible null pointer dereference: line. [nullPointerRedundantCheck]
+ if (!strncmp(line, "HTTP/1.1 401 ", strlen("HTTP/1.1 401 "))) {
+              ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_ws.c:321:5: note: Assuming that condition 'if(line)' is not redundant
+ if (line)
+    ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/regress_ws.c:318:15: note: Null pointer dereference
+ if (!strncmp(line, "HTTP/1.1 401 ", strlen("HTTP/1.1 401 "))) {
+              ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/test/tinytest.c:566:5: warning: %i in format string (no. 3) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("\n  [RETRYING %s (attempts left %i, delay %i sec)]\n", testcase->name, attempts, opt_retries_delay);
+    ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/wepoll.c:2167:13: warning: Either the condition 'if(node)' is redundant or there is possible null pointer dereference: node. [nullPointerRedundantCheck]
+  } while (!node->red);
+            ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/wepoll.c:2169:6: note: Assuming that condition 'if(node)' is not redundant
+  if (node)
+     ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/wepoll.c:2167:13: note: Null pointer dereference
+  } while (!node->red);
+            ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/ws.c:247:44: warning: The address of local variable 'mask' might be accessed at non-zero index. [objectIndex]
+   c[i] = c[i] ^ ((unsigned char *)(&mask))[i % 4];
+                                           ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/ws.c:247:37: note: Address of variable taken here.
+   c[i] = c[i] ^ ((unsigned char *)(&mask))[i % 4];
+                                    ^
+/home/lsc20011130/libevent-2.2.1-alpha-dev/ws.c:247:44: note: The address of local variable 'mask' might be accessed at non-zero index.
+   c[i] = c[i] ^ ((unsigned char *)(&mask))[i % 4];
+                                           ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

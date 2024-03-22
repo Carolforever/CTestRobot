@@ -48,8 +48,8 @@ func CheckCppcheck(config Config) (bool, string) {
 	if err != nil {
 		log.Println("Cpp_Check: failed for :", err)
 	}
-	WriteFile("\ncppcheck:\n\n", "result.txt")
-	WriteFile(errStr, "result.txt")
+	WriteFile("\ncppcheck:\n\n", config.Proj_Name + "_result.txt")
+	WriteFile(errStr, config.Proj_Name + "_result.txt")
 	return true, errStr
 }
 
@@ -65,7 +65,7 @@ func CheckSmatch(config Config) (bool, string) {
 	result := string(output)
 	log.Println(result)
 
-	MergeFile(config.Proj_Dir, "result.txt", "smatch check:\n\n")
+	MergeFile(config.Proj_Dir, config.Proj_Name + "_result.txt", "smatch check:\n\n")
 
 	dir, err := os.ReadDir(config.Proj_Dir)
 	if err != nil {
@@ -82,7 +82,7 @@ func CheckSmatch(config Config) (bool, string) {
 		}
 	}
 
-	return true, ReadFile("result.txt")
+	return true, ReadFile(config.Proj_Name + "_result.txt")
 }
 
 func MergeFile(Proj_DIR string, outPath string, HeadLine string) {

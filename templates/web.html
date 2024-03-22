@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CTestRobot</title>
+</head>
+<body>
+    <h1 align="center">CTestRobot</h1>
+    <!-- 表单用于用户输入 -->
+    <div style="text-align: center;">
+        <form id="inputForm" action="\demo3" method="post">
+            <label for="makeCmd">make_cmd:</label>
+            <input type="text" id="makeCmd" name="Make_Cmd"><br><br>
+
+            <label for="smatchDir">smatch_dir:</label>
+            <input type="text" id="smatchDir" name="Smatch_Dir"><br><br>
+
+            <label for="projDir">proj_dir:</label>
+            <input type="text" id="projDir" name= "Proj_Dir"><br><br>
+
+            <!-- 提交按钮 -->
+            <button type= "submit">提交</button>
+        </form>
+    </div>
+    <!-- 用于显示返回结果的区域 -->
+    <div id= "result"></div>
+</body>
+</html>
