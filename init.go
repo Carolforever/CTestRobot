@@ -26,7 +26,8 @@ func parseConfig(configFile string, user Config) Config {
 	value1, _ := sjson.Set(string(bytes), "configure_cmd", user.Configure_Cmd)
 	value2, _ := sjson.Set(value1, "make_cmd", user.Make_Cmd)
 	value3, _ := sjson.Set(value2, "proj_name", user.Proj_Name)
-	err := os.WriteFile(configFile, []byte(value3), 0777)
+	value4, _ := sjson.Set(value3, "mysql_info", user.Mysql_Info)
+	err := os.WriteFile(configFile, []byte(value4), 0777)
 	if err != nil {
 		log.Println("Modified config.json failed :", err)
 	}
@@ -50,7 +51,7 @@ func parseConfig(configFile string, user Config) Config {
 	return config
 }
 
-func RunCommand(Dir string, command string, args ...string) (error, string) {
+func RunCommand(Dir string, command string, args ...string) (string, error) {
 	cmd := exec.Command(command, args...)
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout  
@@ -60,7 +61,7 @@ func RunCommand(Dir string, command string, args ...string) (error, string) {
 	}
 	err := cmd.Run()
 	errStr := stderr.String()
-	return err, errStr
+	return errStr, err
 }
 
 func botinit() {
@@ -69,30 +70,30 @@ func botinit() {
 		log.Println("get current dir: failed for :", err)
 	}
 
-	err, _ = RunCommand(robot_dir, "ls", "-l", "result")
+	_, err = RunCommand(robot_dir, "ls", "-l", "result")
 	if err != nil {
-		err, _ = RunCommand(robot_dir, "mkdir", "result")
+		_, err = RunCommand(robot_dir, "mkdir", "result")
 		if err != nil {
 			log.Println("mkdir result: failed for :", err)
 		}
 	}
 
-	err, _ = RunCommand(robot_dir, "ls", "-l", "projects")
+	_, err= RunCommand(robot_dir, "ls", "-l", "projects")
 	if err != nil {
-		err, _ = RunCommand(robot_dir, "mkdir", "projects")
+		_, err = RunCommand(robot_dir, "mkdir", "projects")
 		if err != nil {
 			log.Println("mkdir projects: failed for :", err)
 		}
 	}
 
-	err, _ = RunCommand(robot_dir, "ls", "-l", "smatch")
+	_, err = RunCommand(robot_dir, "ls", "-l", "smatch")
 	if err != nil {
-		err, _ = RunCommand(robot_dir, "git", "clone", "git@github.com:error27/smatch.git")
+		_, err = RunCommand(robot_dir, "git", "clone", "git@github.com:error27/smatch.git")
 		if err != nil {
 			log.Println("clone smatch: failed for :", err)
 		}
 
-		err, _ = RunCommand(robot_dir + "/smatch", "make")
+		_, err = RunCommand(robot_dir + "/smatch", "make")
 		if err != nil {
 			log.Println("smatch make: failed for :", err)
 		}

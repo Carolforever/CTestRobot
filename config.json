@@ -1,5 +1,6 @@
 {
     "configure_cmd" : "./auto/configure",
     "make_cmd" : "make",
-    "proj_name" : "nginx"
+    "proj_name" : "nginx",
+    "mysql_info" : "root:lsc20011130@tcp(localhost:3306)/Test_Result"
 }
