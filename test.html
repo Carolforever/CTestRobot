@@ -1,0 +1,70 @@
+以下是使用HTML和JavaScript编写的页面示例，用户可以上传.tar.gz文件，并在文件格式不正确时提醒用户：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件上传</title>
+</head>
+<body>
+
+    <h1>文件上传</h1>
+
+    <!-- 文件选择 -->
+    <input type="file" name="fileInput" id="fileInput">
+
+    <!-- 提交按钮 -->
+    <button type="submit" onclick="uploadFile()">提交</button> 
+
+<script type="text/javascript">
+function uploadFile() {
+   var fileInput = document.getElementById("fileInput");
+   var file = fileInput.files[0]; // 获取用户选择的文件
+   
+   // 判断文件类型是否为.tar.gz
+   if (file.type !== 'application/x-gzip' || !file.name.endsWith('.tar.gz')) {
+       alert('请选择 .tar.gz 格式的文件');
+       return;
+   }
+
+   var xhr = new XMLHttpRequest(); // 创建XMLHttpRequest对象
+   
+   xhr.open('POST', '/upload', true); // 发起POST请求，将数据发送到服务器端的'/upload'路由上
+   
+   xhr.onload = function() {  // 请求完成后触发
+       if (xhr.status === 200) {
+           console.log(xhr.responseText);  // 输出服务器返回的响应消息
+           alert('已成功上传');
+       } else {
+           alert('出现错误');
+       }
+       
+       document.getElementById("fileInput").value = '';  // 清空文件选择框内容
+   };
+
+   var formData = new FormData();  // 创建FormData对象
+   formData.append('file', file);  // 将选中的文件添加到FormData对象中
+
+ xhr.send(formData); // 发送FormData对象到服务器端
+ 
+}
+</script>
+
+
+</body>
+</html>
+```
+
+在上面的示例代码中，我们添加了以下代码来检查用户选择的文件是否为.tar.gz格式：
+
+```javascript
+// 判断文件类型是否为.tar.gz
+if (file.type !== 'application/x-gzip' || !file.name.endsWith('.tar.gz')) {
+    alert('请选择 .tar.gz 格式的文件');
+    return;
+}
+```
+
+如果判断不通过，会弹出一个提示框提醒用户选择正确格式的文件。
+
+您需要根据自己项目中实际情况进行适当修改和调整。另外，请确保服务端正确接收并处理这个POST请求，并根据需要返回适当的响应。

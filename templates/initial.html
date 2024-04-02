@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CTestRobot</title>
+</head>
+<body>
+    <h1 align="center">CTestRobot</h1>
+    <!-- 表单用于用户输入 -->
+    <div style="position:absolute;left:300px;top:100px">
+        <h2>local C projct test</h2>
+        <form id="inputForm" action="\local" method="post">
+            <label for="configureCmd">configure_cmd:</label>
+            <input type="text" id="configureCmd" name="Configure_Cmd"><br><br>
+
+            <label for="makeCmd">make_cmd:</label>
+            <input type="text" id="makeCmd" name="Make_Cmd"><br><br>
+
+            <label for="projName">proj_name:</label>
+            <input type="text" id="projName" name= "Proj_Name"><br><br>
+
+            <!-- 提交按钮 -->
+            <button type= "submit">提交</button>
+        </form>
+    </div>
+
+    <!-- 上传 tar.gz 文件 -->
+    <div style="position:absolute;right:300px;top:100px">
+        <h2>tar.gz C project file upload and test</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <!-- 文件选择按钮 -->
+            <input type="file" name="fileInput" id="fileInput">
+
+            <!-- 提交按钮 -->
+            <button type="submit">上传</button>
+        </form>
+
+        <script type="text/javascript">
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0]; // 获取选择的文件
+            //if (!file.name.endsWith('.tar.gz')) {
+                //alert('请选择 .tar.gz 格式的文件');
+                //return;
+            //}
+            var formData = new FormData(); // 创建FormData对象
+            formData.append('file', file); // 将选择的文件添加到FormData对象中
+            var xhr = new XMLHttpRequest(); // 创建XMLHttpRequest对象
+            xhr.open('POST', '/upload', true); // 发起POST请求，将数据发送到服务器端的'/upload'路由上
+            xhr.onload = function() { // 当请求完成后触发
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText); // 输出服务器返回的响应消息
+                    alert('文件已成功上传');
+                } else {
+                    alert('出现错误');
+                }
+                fileInput.value = '';  // 清空文件输入框内容
+            };
+            xhr.send(formData);  // 发送FormData对象到服务器端
+        });
+        </script>
+    </div>
+</body>
+</html>

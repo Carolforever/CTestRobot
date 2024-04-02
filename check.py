@@ -4,12 +4,18 @@ import stat
 
 def main(): 
     Proj_DIR = sys.argv[1]
-    make_cmd = sys.argv[2]
-    smatch_dir = sys.argv[3]
-    cgcc_dir = sys.argv[4]
+    configure_cmd = sys.argv[2]
+    make_cmd = sys.argv[3]
+    smatch_dir = sys.argv[4]
+    cgcc_dir = sys.argv[5]
  
-    #sudo make CHECK="/home/lsc20011130/smatch/smatch --file-output" CC="/home/lsc20011130/smatch/cgcc"
-    cmd = "cd " + Proj_DIR + " && " + make_cmd + " CHECK=\"" + smatch_dir + " --file-output\" " + "CC=\"" + cgcc_dir + "\"" 
+    #./configure
+    if configure_cmd != "":
+        cmd = "cd " + Proj_DIR + " && " + configure_cmd
+        os.system(cmd)
+        
+    #make CHECK="/smatch/smatch --full-path --file-output" CC="/home/lsc20011130/smatch/cgcc"
+    cmd = "cd " + Proj_DIR + " && " + make_cmd + " CHECK=\"" + smatch_dir + " --full-path" + " --file-output\" " + "CC=\"" + cgcc_dir + "\"" 
     os.system(cmd)
 
 main()

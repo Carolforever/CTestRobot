@@ -1,10 +1,8 @@
-smatch check:
-
-nty_schedule.c:144 nty_schedule_desched_wait() error: we previously assumed 'co' could be null (see line 141)
-nty_socket.c:350 init_hook() warn: inconsistent indenting
+smatch check :
+/home/lsc20011130/CTestProj/Ntyco/core/nty_schedule.c:144 nty_schedule_desched_wait() error: we previously assumed 'co' could be null (see line 141)
+/home/lsc20011130/CTestProj/Ntyco/core/nty_socket.c:350 init_hook() warn: inconsistent indenting
 
 cppcheck:
-
 /home/lsc20011130/CTestProj/Ntyco/core/nty_coroutine.c:63:2: error: Address of local auto-variable assigned to a function parameter. [autoVariables]
  co->stack_size = top - &dummy;
  ^
