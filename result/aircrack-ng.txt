@@ -1,0 +1,53 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:1997 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:1997 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2005 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2005 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2006 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2006 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2007 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2007 do_attack_arp_resend() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2453 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2453 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2478 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2478 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2479 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2479 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2480 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2480 do_attack_caffe_latte() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2512 do_attack_caffe_latte() warn: ignoring unreachable code.
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2925 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2925 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2951 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2951 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2952 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2952 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2953 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/aireplay-ng/aireplay-ng.c:2953 do_attack_migmode() warn: potentially one past the end of array 'arp[nb_arp]'
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/airodump-ng/airodump-ng.c:2757 dump_add_packet() warn: Function too hairy.  No more merges.
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/airodump-ng/airodump-ng.c:2757 dump_add_packet() parse error: Function too hairy.  Giving up. 12 seconds
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/airserv-ng/airserv-ng.c:122 client_add() warn: double check that we're allocating correct size: 40 vs 1
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/buddy-ng/buddy-ng.c:291 main() warn: ignoring unreachable code.
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/wesside-ng/wesside-ng.c:798 proc_mgt() warn: ignoring unreachable code.
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/lib/libac/cpu/simd_cpuid.c:508:10: warning: Possible null pointer dereference: pm [nullPointer]
+ while (*pm == ' ')
+         ^
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/lib/libac/cpu/simd_cpuid.c:438:13: note: Assignment 'pm=NULL', assigned value is 0
+ char *pm = NULL, *model = NULL;
+            ^
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/lib/libac/cpu/simd_cpuid.c:508:10: note: Null pointer dereference
+ while (*pm == ' ')
+         ^
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/wesside-ng/wesside-ng.c:413:16: warning: Possible null pointer dereference: buf [nullPointer]
+  memcpy(lame, buf, len);
+               ^
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/wesside-ng/wesside-ng.c:1944:58: note: Calling function 'send_frame', 2nd argument 'NULL' value is 0
+ if (elapsed >= (int) ws->ws_ack_timeout) send_frame(ws, NULL, -1);
+                                                         ^
+/home/lsc20011130/CTestRobot/projects/aircrack-ng/src/wesside-ng/wesside-ng.c:413:16: note: Null pointer dereference
+  memcpy(lame, buf, len);
+               ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

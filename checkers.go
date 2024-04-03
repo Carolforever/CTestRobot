@@ -32,6 +32,21 @@ func CheckAll(config Config) {
 	}
 	defer db.Close()
 		
+	//新建表存储检测结果
+	exists, err := checkTableExists(db, "files")
+	if err != nil {
+		panic(err)
+	}
+
+	if !exists {
+		_, err = db.Exec(`CREATE TABLE files (
+			id int NOT NULL AUTO_INCREMENT, filename varchar(255) NOT NULL, content text NOT NULL, created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id)
+		) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci`)
+		if err != nil {	
+			panic(err.Error())
+		}
+	}
+
 	// 读取文件内容
 	filePath := robot_dir + "/result/" + config.Proj_Name + ".txt"
 	content, err := os.ReadFile(filePath)
@@ -47,13 +62,10 @@ func CheckAll(config Config) {
 	}
 	defer insertStmt.Close()
 		
-	result, err := insertStmt.Exec(config.Proj_Name, string(content))
+	_, err = insertStmt.Exec(config.Proj_Name, string(content))
 	if err != nil {
 		panic(err.Error())
-	}	
-	rowsAffected, _ := result.RowsAffected()
-	log.Printf("插入了 %d 行数据\n", rowsAffected)
-		
+	}
 }
 
 func StaticAnalysis(config Config)  {
@@ -68,7 +80,7 @@ func CheckCppcheck(config Config) {
 		log.Println("get current dir: failed for :", err)
 	}
 
-	errStr, err := RunCommand(robot_dir, "cppcheck", robot_dir + "/projects/" + config.Proj_Name, "--enable=warning")
+	errStr, err := RunCommand(robot_dir, "cppcheck", robot_dir + "/projects/" + config.Proj_Name)
 	if err != nil {
 		log.Println("Cpp_Check: failed for :", err)
 	}

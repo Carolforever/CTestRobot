@@ -39,6 +39,7 @@
         <textarea id="resultBox"></textarea>
         <script>
             function submitForm() {
+              document.getElementById("resultBox").value = "";
               document.getElementById("resultBox").value = "Testing......";
               var form = document.getElementById("inputForm");
               var formData = new FormData(form);
@@ -49,7 +50,6 @@
               })
               .then(response => response.text())
               .then(data => {
-                document.getElementById("resultBox").value = '';
                 document.getElementById("resultBox").value = data;
               });
             }

@@ -7,6 +7,8 @@ import (
 	"flag"
 	"os/exec"
 	"bytes"
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 	//"strings"
 	//"github.com/gin-gonic/gin"
 	"github.com/tidwall/sjson"
@@ -20,6 +22,7 @@ var (
 	//flagDebug  = flag.Bool("debug", false, "dump all the logs")
 )
 
+//处理config文件
 func parseConfig(configFile string, user Config) Config {
 	var config Config
 	bytes, _ := os.ReadFile(configFile)
@@ -44,13 +47,17 @@ func parseConfig(configFile string, user Config) Config {
 	if err = dec.Decode(&config); err != nil {
 		log.Fatal(err)
 	}
-	//default make_cmd
+	//default value
 	if config.Make_Cmd == "" {
 		config.Make_Cmd = "make"
+	}
+	if config.Configure_Cmd == "" {
+		config.Configure_Cmd = "./configure"
 	}
 	return config
 }
 
+//执行command模板
 func RunCommand(Dir string, command string, args ...string) (string, error) {
 	cmd := exec.Command(command, args...)
 	var stdout, stderr bytes.Buffer
@@ -64,6 +71,26 @@ func RunCommand(Dir string, command string, args ...string) (string, error) {
 	return errStr, err
 }
 
+func checkTableExists(db *sql.DB, tableName string) (bool, error) {
+    rows, err := db.Query("SHOW TABLES")
+    if err != nil {
+        return false, err
+    }
+    defer rows.Close()
+
+    for rows.Next() {
+        var table string
+        if err := rows.Scan(&table); err != nil {
+            return false, err
+        }
+        if table == tableName {
+            return true, nil
+        }
+    }
+    return false, nil
+}
+
+//初始化bot
 func botinit() {
 	robot_dir, err := os.Getwd()
 	if err != nil {

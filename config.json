@@ -1,6 +1,5 @@
 {
-    "configure_cmd" : "./auto/configure",
-    "make_cmd" : "make",
-    "proj_name" : "nginx",
+    "configure_cmd" : "./configure",
+    "proj_name" : "aircrack-ng",
     "mysql_info" : "root:lsc20011130@tcp(localhost:3306)/Test_Result"
-}
+,"make_cmd":"make"}
