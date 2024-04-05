@@ -47,14 +47,14 @@ make
 # Makefile of the project to be tested need to use CC == gcc
 # start mysql service
 # run ./CTestRobot -config config.json in CTestRobot
-# see the page in localhost:8080/lsc, and fill in the information
+# see the page in localhost:8080/lsc, fill in the information and submit
 ```
 
 
 
 ## Input Explanation
 ```
-# configure_cmd and make_cmd， there's nothing to explain, just for the project to build. If the project doesn't require configure_cmd, just don't enter it
+# autoconf_cmd, configure_cmd and make_cmd， there's nothing to explain, just for the project to build. If the project doesn't require autoconf_cmd and configure_cmd, just don't input
 # proj_name will be used as the name of the project's test result file in /CTestRobot/result
 # mysql_info, follow the template "username:passwd@tcp(localhost:3306)/database_name"
 ```
