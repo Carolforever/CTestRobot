@@ -1,0 +1,7 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/mfoc/src/mfoc.c:184 main() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/mfoc/src/mfoc.c:523 main() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/mfoc/src/mfoc.c:552 main() warn: possible memory leak of 'bk'
+/home/lsc20011130/CTestRobot/projects/mfoc/src/mfoc.c:1244 valid_nonce() warn: maybe use && instead of &
+
+cppcheck:

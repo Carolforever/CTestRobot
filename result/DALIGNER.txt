@@ -1,0 +1,49 @@
+
+smatch check :
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:941 Load_QVs() error: uninitialized symbol 'last'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:1731 List_DB_Files() warn: variable dereferenced before check 'root' (see line 1729)
+/home/lsc20011130/CTestRobot/projects/DALIGNER/HPC.daligner.c:652 daligner_script() warn: Function too hairy.  No more merges.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/HPC.daligner.c:652 daligner_script() parse error: Function too hairy.  Giving up. 5 seconds
+/home/lsc20011130/CTestRobot/projects/DALIGNER/LAindex.c:99 main() warn: passing freed memory 'root'
+/home/lsc20011130/CTestRobot/projects/DALIGNER/LAshow.c:133 main() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3357 Print_Alignment() error: uninitialized symbol 'diff'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3357 Print_Alignment() error: uninitialized symbol 'match'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3362 Print_Alignment() error: uninitialized symbol 'diff'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3362 Print_Alignment() error: uninitialized symbol 'match'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3367 Print_Alignment() error: uninitialized symbol 'diff'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3367 Print_Alignment() error: uninitialized symbol 'match'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3375 Print_Alignment() error: uninitialized symbol 'diff'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3375 Print_Alignment() error: uninitialized symbol 'match'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3448 Print_Alignment() parse error: turning off implications after 60 seconds
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3631 Print_Reference() error: uninitialized symbol 'diff'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3631 Print_Reference() error: uninitialized symbol 'match'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3694 Print_Reference() parse error: turning off implications after 60 seconds
+/home/lsc20011130/CTestRobot/projects/DALIGNER/align.c:3978 dandc_nd() warn: signed overflow undefined. 'am + 1 < am'
+/home/lsc20011130/CTestRobot/projects/DALIGNER/daligner.c:722 main() error: uninitialized symbol 'alen'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/daligner.c:731 main() error: uninitialized symbol 'alen'.
+/home/lsc20011130/CTestRobot/projects/DALIGNER/filter.c:1824 report_thread() warn: inconsistent indenting
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:65:3: error: Returning/dereferencing 'p' after it is deallocated / released [deallocret]
+  return (p);
+  ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:59:12: note: Returning/dereferencing 'p' after it is deallocated / released
+  if ((p = realloc(p,size)) == NULL)
+           ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:65:3: note: Returning/dereferencing 'p' after it is deallocated / released
+  return (p);
+  ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:153:12: error: Common realloc mistake: 'cat' nulled but not freed upon failure [memleakOnRealloc]
+      if ((cat = (char *) realloc(cat,max+1)) == NULL)
+           ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/DB.c:173:12: error: Common realloc mistake: 'suffix' nulled but not freed upon failure [memleakOnRealloc]
+      if ((suffix = (char *) realloc(suffix,max+1)) == NULL)
+           ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/daligner.c:528:12: error: Common realloc mistake: 'cat' nulled but not freed upon failure [memleakOnRealloc]
+      if ((cat = (char *) realloc(cat,max+1)) == NULL)
+           ^
+/home/lsc20011130/CTestRobot/projects/DALIGNER/filter.c:1902:12: error: Common realloc mistake: 'cat' nulled but not freed upon failure [memleakOnRealloc]
+      if ((cat = (char *) realloc(cat,max+1)) == NULL)
+           ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

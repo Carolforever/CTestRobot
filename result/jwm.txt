@@ -1,0 +1,20 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/jwm/src/client.c:682 MaximizeClient() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/jwm/src/group.c:276 ApplyGroups() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/jwm/src/main.c:533 Startup() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/jwm/src/main.c:575 Shutdown() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/jwm/src/menu.c:512 MenuCallback() error: we previously assumed 'menu' could be null (see line 494)
+/home/lsc20011130/CTestRobot/projects/jwm/src/misc.c:121 ReplaceSymbol() warn: inconsistent indenting
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/jwm/src/command.c:193:13: error: Common realloc mistake: 'buffer' nulled but not freed upon failure [memleakOnRealloc]
+            buffer = Reallocate(buffer, max_size);
+            ^
+/home/lsc20011130/CTestRobot/projects/jwm/src/command.c:225:19: error: Common realloc mistake: 'buffer' nulled but not freed upon failure [memleakOnRealloc]
+                  buffer = Reallocate(buffer, max_size);
+                  ^
+/home/lsc20011130/CTestRobot/projects/jwm/src/settings.c:63:36: error: Buffer is accessed out of bounds: DEFAULT_TITLE_BAR_LAYOUT [bufferAccessOutOfBounds]
+   memcpy(settings.titleBarLayout, DEFAULT_TITLE_BAR_LAYOUT,
+                                   ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

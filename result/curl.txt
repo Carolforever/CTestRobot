@@ -1,0 +1,117 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/curl/lib/cookie.c:738 Curl_cookie_add() warn: potential negative subtraction from max '9223372036854775807 - now'
+/home/lsc20011130/CTestRobot/projects/curl/lib/doh.c:270 dohprobe() warn: sizeof(NUMBER)?
+/home/lsc20011130/CTestRobot/projects/curl/lib/doh.c:272 dohprobe() warn: sizeof(NUMBER)?
+/home/lsc20011130/CTestRobot/projects/curl/lib/doh.c:290 dohprobe() warn: sizeof(NUMBER)?
+/home/lsc20011130/CTestRobot/projects/curl/lib/doh.c:308 dohprobe() warn: sizeof(NUMBER)?
+/home/lsc20011130/CTestRobot/projects/curl/lib/doh.c:469 get32bit() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/file.c:415 file_do() warn: '"Accept-ranges: bytes
+"' 1133383797738553344 can't fit into 127 'accept_ranges[0]'
+/home/lsc20011130/CTestRobot/projects/curl/lib/ftp.c:2363 ftp_state_rest_resp() warn: '"Accept-ranges: bytes
+"' 1133383797738553344 can't fit into 127 'buffer[0]'
+/home/lsc20011130/CTestRobot/projects/curl/lib/getinfo.c:220 getinfo_long() warn: impossible condition '(data->info.filetime > 9223372036854775807) => (s64min-s64max > s64max)'
+/home/lsc20011130/CTestRobot/projects/curl/lib/getinfo.c:222 getinfo_long() warn: impossible condition '(data->info.filetime < (-9223372036854775807 - 1)) => (s64min-s64max < s64min)'
+/home/lsc20011130/CTestRobot/projects/curl/lib/http.c:1066 Curl_http_input_auth() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/imap.c:1864 imap_atom() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/multi.c:1869 multi_runsingle() warn: if statement not indented
+/home/lsc20011130/CTestRobot/projects/curl/lib/pingpong.c:373 Curl_pp_readresp() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/pop3.c:988 pop3_statemachine() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/pop3.c:994 pop3_statemachine() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/pop3.c:1044 pop3_statemachine() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/lib/setopt.c:2910 Curl_vsetopt() warn: Function too hairy.  No more merges.
+/home/lsc20011130/CTestRobot/projects/curl/lib/setopt.c:2910 Curl_vsetopt() parse error: Function too hairy.  Giving up. 6 seconds
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:970 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:971 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:972 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:979 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:980 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:981 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:982 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:984 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:985 sendsuboption() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1130 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1145 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1146 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1155 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1159 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/telnet.c:1160 telrcv() error: buffer overflow 'tn->subbuffer' 512 <= 512
+/home/lsc20011130/CTestRobot/projects/curl/lib/url.c:2448 parse_proxy() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_formparse.c:102 tool_mime_new_filedata() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_getparam.c:1977 getparameter() warn: Function too hairy.  No more merges.
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_getparam.c:1977 getparameter() parse error: Function too hairy.  Giving up. 5 seconds
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_homedir.c:105 homedir() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:214 add_per_transfer() warn: double check that we're allocating correct size: 720 vs 1
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:307 pre_transfer() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:385 post_per_transfer() warn: inconsistent indenting
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:525 post_per_transfer() warn: potential negative subtraction from max '9223372036854775807 - retry_after'
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:1755 single_transfer() warn: Function too hairy.  No more merges.
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:1755 single_transfer() parse error: Function too hairy.  Giving up. 12 seconds
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_operate.c:2150 add_parallel_transfers() warn: sizeof(NUMBER)?
+/home/lsc20011130/CTestRobot/projects/curl/src/tool_paramhlp.c:604 str2tls_max() warn: inconsistent indenting
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/curl/docs/examples/simplessl.c:140:3: error: Resource leak: headerfile [resourceLeak]
+  return 0;
+  ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/curl_addrinfo.c:559:40: error: Uninitialized variable: *result [uninitvar]
+                 source, line, (void *)*result);
+                                       ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/curl_addrinfo.c:124:11: note: Calling function 'curl_dbg_getaddrinfo', 4th argument '&aihead' value is <Uninit>
+  error = getaddrinfo(nodename, servname, hints, &aihead);
+          ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/curl_addrinfo.c:559:40: note: Uninitialized variable: *result
+                 source, line, (void *)*result);
+                                       ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/strdup.c:119:5: error: Memory pointed to by 'ptr' is freed twice. [doubleFree]
+    free(ptr);
+    ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/strdup.c:116:17: note: Memory pointed to by 'ptr' is freed twice.
+  void *datap = realloc(ptr, size);
+                ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/strdup.c:119:5: note: Memory pointed to by 'ptr' is freed twice.
+    free(ptr);
+    ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/vtls/rustls.c:161:27: error: Pointer addition with NULL pointer. [nullPointerArithmetic]
+      (uint8_t *)plainbuf + plain_bytes_copied,
+                          ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/vtls/rustls.c:470:32: note: Calling function 'cr_recv', 3rd argument 'NULL' value is 0
+      cr_recv(data, sockindex, NULL, 0, &tmperr);
+                               ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/vtls/rustls.c:161:27: note: Null pointer addition
+      (uint8_t *)plainbuf + plain_bytes_copied,
+                          ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:1242:19: error: Invalid malloc() argument nr 1. The value is -1 but the valid values are '0:'. [invalidFunctionArg]
+      cp = malloc(pfsize);
+                  ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:1240:18: note: Assignment 'pfsize=(unsigned long)~0', assigned value is -1
+        pfsize = SIZE_MAX;
+                 ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:1242:19: note: Invalid argument
+      cp = malloc(pfsize);
+                  ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:207:3: error: Returning/dereferencing 'd' after it is deallocated / released [deallocret]
+  return d;
+  ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:201:10: note: Returning/dereferencing 'd' after it is deallocated / released
+    cp = realloc(d, l);         /* Shorten to minimum needed. */
+         ^
+/home/lsc20011130/CTestRobot/projects/curl/packages/OS400/ccsidcurl.c:207:3: note: Returning/dereferencing 'd' after it is deallocated / released
+  return d;
+  ^
+/home/lsc20011130/CTestRobot/projects/curl/src/macos/src/macos_main.cpp:25:1: error: There is an unknown macro here somewhere. Configuration is required. If DECLARE_MAIN is a macro then please configure it. [unknownMacro]
+/* =========================================================================   Copyright (C) 2001 - 2020, Eric Lavigne   Permission is granted to anyone to use this software for any purpose on any   computer system, and to redistribute it freely, subject to the following   restrictions:   - The author is not responsible for the consequences of use of this   software, no matter how awful, even if they arise from defects in it.   - The origin of this software must not be misrepresented, either by   explicit claim or by omission.   - You are allowed to distributed modified copies of the software, in source   and binary form, provided they are marked plainly as altered versions, and   are not misrepresented as being the original software.   ========================================================================= */#include <stdlib.h>#include <string.h>#include <stdio.h>#include <Memory.h>#include <GUSICommandLine.h>#include <stdlib.h>/* ========================================================================= */DECLARE_MAIN(curl)REGISTER_MAIN_STARTREGISTER_MAIN(curl)REGISTER_MAIN_END/* ========================================================================= */int main(){ ::MaxApplZone(); for (int i = 1; i <= 10; i++)  ::MoreMasters(); (void) exec_commands(); return 0;}
+^
+/home/lsc20011130/CTestRobot/projects/curl/lib/asyn-thread.c:234:17: error: Null pointer dereference: hints [ctunullpointer]
+  tsd->hints = *hints;
+                ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/asyn-thread.c:676:25: note: Calling function init_resolve_thread, 4th argument is null
+  if(init_resolve_thread(data, hostname, port, NULL)) {
+                        ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/asyn-thread.c:448:7: note: Calling function init_thread_sync_data, 4th argument is null
+  if(!init_thread_sync_data(td, hostname, port, hints)) {
+      ^
+/home/lsc20011130/CTestRobot/projects/curl/lib/asyn-thread.c:234:17: note: Dereferencing argument hints that is null
+  tsd->hints = *hints;
+                ^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

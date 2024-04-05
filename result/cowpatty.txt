@@ -1,0 +1,7 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/cowpatty/cowpatty.c:195 testopts() warn: inconsistent indenting
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/cowpatty/genpmk.c:209:7: error: Return value of allocation function 'fopen' is not stored. [leakReturnValNotUsed]
+  if (fopen(opt.hashfile, "ab") == NULL) {
+      ^

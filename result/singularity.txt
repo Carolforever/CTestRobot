@@ -1,0 +1,13 @@
+smatch check :
+/home/lsc20011130/CTestRobot/projects/singularity/src/lib/runtime/environment/environment.c:107 _singularity_runtime_environment() warn: possible memory leak of 'envclone'
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/config_parser.c:94 add_entry() warn: potentially one past the end of array 'hash_value[max_size - 1]'
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/daemon.c:112 daemon_init_join() warn: ignoring unreachable code.
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/fork.c:247 fork_ns() warn: overwrite may leak 'child_stack_ptr'
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/mount.c:139 check_mounted() warn: possible memory leak of 'line'
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/suid.c:114 singularity_suid_init() warn: ignoring unreachable code.
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/util.c:362 envclean() warn: possible memory leak of 'envclone'
+
+cppcheck:
+/home/lsc20011130/CTestRobot/projects/singularity/src/util/mount.c:139:9: error: Memory leak: line [memleak]
+        return(retval);
+        ^

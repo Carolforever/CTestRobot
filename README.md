@@ -37,7 +37,6 @@ Download the golang package (`go1.20.5.linux-amd64.tar.gz`) and execute the foll
 git clone git@github.com:Carolforever/CTestRobot.git
 cd CTestRobot
 make
-./CTestRobot -config config.json
 ```
 
 
@@ -45,15 +44,18 @@ make
 ### Use
 
 ```
-# Put the projects to be tested into /CTestRobot/projects and finish all the required pre-processing steps before ./configure(e.g. installing dependencies required by the project)
-# localhost:8080/lsc
+# Put the projects to be tested into /CTestRobot/projects and finish all the required pre-processing steps before autoconf(e.g. installing dependencies required by the project)
+# Makefile of the project to be tested need to use CC == gcc
+# start mysql service
+# run ./CTestRobot -config config.json in CTestRobot
+# see the page in localhost:8080/lsc, and fill in the information
 ```
 
 
 
 ## Input Explanation
 ```
-# configure_cmd and make_cmd， there's nothing to explain, just for the project to build.
+# configure_cmd and make_cmd， there's nothing to explain, just for the project to build. If the project doesn't require configure_cmd, just don't enter it
 # proj_name will be used as the name of the project's test result file in /CTestRobot/result
 # mysql_info, follow the template "username:passwd@tcp(localhost:3306)/database_name"
 ```

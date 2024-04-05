@@ -18,7 +18,7 @@ import (
 func router(){
 	robot_dir, err := os.Getwd()
 	if err != nil {
-		log.Println("get current dir: failed for :", err)
+		log.Println("get current dir failed for :", err)
 	}
 
 	router := gin.Default()
@@ -67,12 +67,12 @@ func router(){
 
 		_, err = RunCommand(robot_dir + "/projects", "tar", "-zxvf", filePath)
 		if err != nil {
-			log.Println("Unzip .tar.gz file: failed for :", err)
+			log.Println("Unzip .tar.gz file failed for :", err)
 		}
 
 		_, err = RunCommand(robot_dir + "/projects", "rm", "-rf", filePath)
 		if err != nil {
-			log.Println("delete .tar.gz file: failed for :", err)
+			log.Println("delete .tar.gz file failed for :", err)
 		}
 		
 		c.HTML(200, "initial.html", nil)
