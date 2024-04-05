@@ -12,7 +12,6 @@ Download the golang package (`go1.20.5.linux-amd64.tar.gz`) and execute the foll
 
 ```
 # rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
-
 ```
 
 
@@ -31,7 +30,7 @@ Download the golang package (`go1.20.5.linux-amd64.tar.gz`) and execute the foll
 
 
 
-### Building
+## Building
 
 ```
 git clone git@github.com:Carolforever/CTestRobot.git
@@ -41,7 +40,7 @@ make
 
 
 
-### Use
+## Use
 
 ```
 # Put the projects to be tested into /CTestRobot/projects and finish all the required pre-processing steps before autoconf(e.g. installing dependencies required by the project)
