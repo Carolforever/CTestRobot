@@ -1,33 +1,22 @@
 # CTestRobot
 
-
+This project uses smatch and cppcheck to statically analyze C projects that are not part of the Linux Kernel. And I'm currently working on the static analysis of Debian C packages.
 
 ## Installation
 
 
-
 ### Install Go
 
-Download the golang package (`go1.20.5.linux-amd64.tar.gz`) and execute the following command:
+Wsl2 Debian12(bookworm) / Ubuntu 20.04.3 LTS
+
+Golang version : go1.20.5
+
+
+### Install dependency
 
 ```
-# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
+# apt-get install gcc make sqlite3 libsqlite3-dev libdbd-sqlite3-perl libssl-dev libtry-tiny-perl dpkg-dev cppcheck Sparse
 ```
-
-
-
-### Install Smatch's dependency
-
-```
-# apt-get install gcc make sqlite3 libsqlite3-dev libdbd-sqlite3-perl libssl-dev libtry-tiny-perl
-```
-
-### Install Cppcheck
-
-```
-# apt-get install cppcheck
-```
-
 
 
 ## Building

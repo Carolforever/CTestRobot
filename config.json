@@ -1,7 +1,7 @@
 {
-    "autoconf_cmd" : "",
-    "configure_cmd" : "",
-    "proj_name" : "DALIGNER",
+    "autoconf_cmd" : "autoreconf -i",
+    "configure_cmd" : "./configure",
+    "proj_name" : "aircrack-ng",
     "mysql_info" : "root:lsc20011130@tcp(localhost:3306)/Test_Result",
     "make_cmd":"make"
 }

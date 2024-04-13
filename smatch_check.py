@@ -13,8 +13,8 @@ def main():
     make_cmd = sys.argv[2]
     smatch_dir = sys.argv[3]
     cgcc_dir = sys.argv[4]
-        
-    #make CHECK="/home/lsc20011130/CTestRobot/smatch/smatch --full-path --file-output" CC="/home/lsc20011130/CTestRobot/smatch/cgcc"
+    
+    #make CHECK="/home/lsc/CTestRobot/smatch/smatch --full-path --file-output" CC="/home/lsc/CTestRobot/smatch/cgcc"
     cmd = "cd " + Proj_DIR + " && " + make_cmd + " CHECK=\"" + smatch_dir + " --full-path" + " --file-output\" " + "CC=\"" + cgcc_dir + "\"" 
     run_command(cmd)
 

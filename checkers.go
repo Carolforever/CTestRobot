@@ -2,28 +2,29 @@ package main
 
 import (
 	//"io/ioutil"
+	"database/sql"
 	"os/exec"
 	"strings"
-	"database/sql"
+
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/mattn/go-sqlite3"
+	//"golang.org/x/tools/go/packages"
+	//"encoding/csv"
 	//"path/filepath"
-	"fmt"
-	//"crypto/sha256"
-	//"strings"
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	//"strconv"
 )
 
-//check all the .c file in specified directory
+// check all the .c file in specified directory
 func CheckAll(config Config) {
 	StaticAnalysis(config)
 	SqlDeal(config)
 }
 
-
-func StaticAnalysis(config Config)  {
+func StaticAnalysis(config Config) {
 	run_conf(config)
 	CheckSmatch(config)
 	CheckCppcheck(config)
@@ -35,7 +36,7 @@ func run_conf(config Config) {
 		log.Println("get current dir: failed for :", err)
 	}
 
-	output, err := exec.Command("python", "run_conf.py", robot_dir + "/projects/" + config.Proj_Name, config.Autoconf_Cmd, config.Configure_Cmd).Output()
+	output, err := exec.Command("python3", "run_conf.py", robot_dir+"/projects/"+config.Proj_Name, config.Autoconf_Cmd, config.Configure_Cmd).Output()
 	if err != nil {
 		log.Println("run_conf failed for :", err)
 	}
@@ -49,14 +50,13 @@ func CheckCppcheck(config Config) {
 		log.Println("get current dir failed for :", err)
 	}
 
-	errStr, err := RunCommand(robot_dir, "cppcheck", robot_dir + "/projects/" + config.Proj_Name)
+	errStr, err := RunCommand(robot_dir, "cppcheck", robot_dir+"/projects/"+config.Proj_Name)
 	if err != nil {
 		log.Println("Cpp_Check failed for :", err)
 	}
-	WriteFile("\ncppcheck:\n", robot_dir + "/result/" + config.Proj_Name + ".txt")
-	WriteFile(errStr, robot_dir + "/result/" + config.Proj_Name + ".txt")
+	WriteFile("\ncppcheck:\n", robot_dir+"/result/"+config.Proj_Name+".txt")
+	WriteFile(errStr, robot_dir+"/result/"+config.Proj_Name+".txt")
 }
-
 
 func CheckSmatch(config Config) {
 	robot_dir, err := os.Getwd()
@@ -67,18 +67,77 @@ func CheckSmatch(config Config) {
 	smatch_dir := robot_dir + "/smatch/smatch"
 	cgcc_dir := robot_dir + "/smatch/cgcc"
 	//create .smatch file for every .c file
-	output, err := exec.Command("python", "smatch_check.py", robot_dir + "/projects/" + config.Proj_Name, config.Make_Cmd, smatch_dir, cgcc_dir).Output()
+	output, err := exec.Command("python3", "smatch_check.py", robot_dir+"/projects/"+config.Proj_Name, config.Make_Cmd, smatch_dir, cgcc_dir).Output()
 	if err != nil {
 		log.Println("Smatch_Check failed for :", err)
 	}
 	result := string(output)
 	log.Println(result)
 
-	WriteFile("\nsmatch check :\n", robot_dir + "/result/" + config.Proj_Name + ".txt")
-	MergeFile(robot_dir + "/projects/" + config.Proj_Name, robot_dir + "/result/" + config.Proj_Name + ".txt")
+	WriteFile("\nsmatch check :\n", robot_dir+"/result/"+config.Proj_Name+".txt")
+	MergeFile(robot_dir+"/projects/"+config.Proj_Name, robot_dir+"/result/"+config.Proj_Name+".txt")
 }
 
-//merge all the .smatch file into one
+func CheckDebian() {
+	robot_dir, err := os.Getwd()
+	if err != nil {
+		log.Println("get current dir failed for :", err)
+	}
+
+	db, err := sql.Open("sqlite3", robot_dir+"/result/"+"debian.db")
+	if err != nil {
+		log.Println("init sqlite failed for :", err)
+	}
+
+	rows, err := db.Query("SELECT name, c FROM packages WHERE header > 0 AND c > (\"all\" * 0.1)")
+	if err != nil {
+		log.Println("sqlite query failed for :", err)
+	}
+
+	var name string
+	var c_code int
+
+	for rows.Next() {
+		err = rows.Scan(&name, &c_code)
+		if err != nil {
+			log.Println("sqlite scan failed for :", err)
+		}
+
+		cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
+		err := cmd.Run()
+		if err != nil {
+			continue
+		}
+
+		pac_basename := name
+		pac_name := ""
+
+		output, err := exec.Command("python3", "debian_check.py", robot_dir, pac_basename).Output()
+		if err != nil {
+			log.Println("Debian check failed for :", err)
+		}
+		result := string(output)
+		log.Println(result)
+
+		dir, err := os.ReadDir(robot_dir + "/projects")
+		if err != nil {
+			log.Println("Read_Dir failed for :", err)
+		}
+
+		for _, entry := range dir {
+			name := entry.Name()
+			if entry.IsDir() && !strings.Contains(name, ".git") {
+				pac_name = name
+				break
+			}
+		}
+
+		WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code), robot_dir + "/result/debian.txt")
+		MergeFile(robot_dir+"/projects/"+pac_name, robot_dir+"/result/"+"debian.txt")
+	}
+}
+
+// merge all the .smatch file into one
 func MergeFile(Proj_DIR string, outPath string) {
 	dir, err := os.ReadDir(Proj_DIR)
 	if err != nil {
@@ -87,8 +146,8 @@ func MergeFile(Proj_DIR string, outPath string) {
 
 	for _, entry := range dir {
 		name := entry.Name()
-		if entry.IsDir() && !strings.Contains(name, ".git"){
-			MergeFile(Proj_DIR + "/" + name, outPath)
+		if entry.IsDir() && !strings.Contains(name, ".git") {
+			MergeFile(Proj_DIR+"/"+name, outPath)
 			continue
 		}
 		if strings.Contains(name, ".smatch") {
@@ -96,7 +155,7 @@ func MergeFile(Proj_DIR string, outPath string) {
 			fileData := ReadFile(path)
 			WriteFile(fileData, outPath)
 
-			_, err := RunCommand(Proj_DIR, "rm", "-rf", path)
+			_, err := RunCommand(Proj_DIR, "sudo", "rm", "-rf", path)
 			if err != nil {
 				log.Println("Dir clean failed for :", err)
 			}
@@ -124,27 +183,27 @@ func ReadFile(readPath string) string {
 	return string(by)
 }
 
-//检查表是否存在
+// 检查表是否存在
 func checkTableExists(db *sql.DB, tableName string) (bool, error) {
-    rows, err := db.Query("SHOW TABLES")
-    if err != nil {
-        return false, err
-    }
-    defer rows.Close()
+	rows, err := db.Query("SHOW TABLES")
+	if err != nil {
+		return false, err
+	}
+	defer rows.Close()
 
-    for rows.Next() {
-        var table string
-        if err := rows.Scan(&table); err != nil {
-            return false, err
-        }
-        if table == tableName {
-            return true, nil
-        }
-    }
-    return false, nil
+	for rows.Next() {
+		var table string
+		if err := rows.Scan(&table); err != nil {
+			return false, err
+		}
+		if table == tableName {
+			return true, nil
+		}
+	}
+	return false, nil
 }
 
-//将检测结果存入数据库
+// 将检测结果存入数据库
 func SqlDeal(config Config) {
 	robot_dir, err := os.Getwd()
 	if err != nil {
@@ -156,7 +215,7 @@ func SqlDeal(config Config) {
 		panic(err.Error())
 	}
 	defer db.Close()
-		
+
 	//新建表存储检测结果
 	exists, err := checkTableExists(db, "files")
 	if err != nil {
@@ -166,8 +225,8 @@ func SqlDeal(config Config) {
 	if !exists {
 		_, err = db.Exec(`CREATE TABLE files (
 			id int NOT NULL AUTO_INCREMENT, filename varchar(255) NOT NULL, content longtext NOT NULL, created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id)
-		) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci`)
-		if err != nil {	
+		) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci`)
+		if err != nil {
 			panic(err.Error())
 		}
 	}
@@ -179,14 +238,14 @@ func SqlDeal(config Config) {
 		panic(err.Error())
 	}
 	Res <- string(content)
-		
+
 	// 插入数据到表中
 	insertStmt, err := db.Prepare("INSERT INTO files (filename, content) VALUES (?, ?)")
 	if err != nil {
 		panic(err.Error())
 	}
 	defer insertStmt.Close()
-		
+
 	_, err = insertStmt.Exec(config.Proj_Name, string(content))
 	if err != nil {
 		panic(err.Error())

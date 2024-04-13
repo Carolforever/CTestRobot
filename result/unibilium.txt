@@ -1,3 +1,0 @@
-smatch check :
-
-cppcheck:
