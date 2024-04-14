@@ -1,11 +1,13 @@
 import subprocess as sp
 import os
 import sys
+import sqlite3
 
-def run_command(cmd):
-    cp = sp.run(cmd, shell=True, capture_output=True, encoding='utf-8')
+def run_command(filename, cmd):
+    cp = sp.run(cmd, shell=True, capture_output=True, encoding='utf-8', timeout=600)
     if cp.returncode != 0:
-        error = f"""Something went wrong with the command: [{cmd}]:{cp.stderr}"""
+        error = f"[{filename}] : Something went wrong with the command: [{cmd}]"
+        print(error)
         raise Exception(error)
     return cp.stdout, cp.stderr
 
@@ -23,6 +25,7 @@ def search_files(directory):
     return False
 
 def main(): 
+    
     robot_dir = sys.argv[1]
     package = sys.argv[2]
     
@@ -31,11 +34,11 @@ def main():
     smatch_check_cmd = "CHECK=\"" + smatch_dir + "\" CC=\"" + cgcc_dir + "\""
     
     temp = sys.stdout
-    f = open(robot_dir + "/result/debian_log.txt", 'w')
+    f = open(robot_dir + "/result/debian_log.txt", 'a+')
     sys.stdout = f
     
     cmd = "cd ./projects && sudo apt-get source " + package
-    run_command(cmd)
+    run_command(package, cmd)
     
     filename = ""
     dir_list = os.listdir(robot_dir + "/projects")
@@ -45,10 +48,8 @@ def main():
             filename = cur_file
 
     if search_files(os.path.join(robot_dir, "projects", filename)):         
-        cmd = "cd ./projects/" + filename + " && sudo chmod 777 debian"
-        run_command(cmd)
-        cmd = "cd ./projects/" + filename + "/debian && sudo chmod 777 rules"
-        run_command(cmd)
+        cmd = "cd ./projects/" + filename + " && sudo chmod -R 777 debian"
+        run_command(filename, cmd)
                 
         build_system_c = True
         override_dh_auto_build = False
@@ -84,10 +85,13 @@ def main():
                 f.close()
             
             if override_dh_auto_build == True and dh_auto_build_changed == True:
+                cmd = "sudo apt-get build-dep -y " + package
+                run_command(package, cmd)
+                
                 print(f"[{filename}] : dh_auto_build exists and override...")
                 cmd = "cd ./projects/" + filename + " && sudo dpkg-buildpackage -us -uc"
                 print(f"[{filename}] : Running dpkg-buildpackage...")
-                run_command(cmd)
+                run_command(filename, cmd)
                 
             elif override_dh_auto_build == False and dh_auto_build_changed == False:
                 print(f"[{filename}] : dh_auto_build doesn't exist, adding override_dh_auto_build...")
@@ -95,10 +99,13 @@ def main():
                     f.write("\noverride_dh_auto_build:\n")
                     f.write("\tdh_auto_build -- " + smatch_check_cmd + "\n")
                     f.close()
+                 
+                cmd = "sudo apt-get build-dep -y " + package
+                run_command(package, cmd) 
                         
                 cmd = "cd ./projects/" + filename + " && sudo dpkg-buildpackage -us -uc"
                 print(f"[{filename}] : Running dpkg-buildpackage...")
-                run_command(cmd)
+                run_command(filename, cmd)
                 
             elif override_dh_auto_build == True and dh_auto_build_changed == False:
                 print(f"[{filename}] : Can't judge, skipping smatch check...")      

@@ -79,62 +79,95 @@ func CheckSmatch(config Config) {
 }
 
 func CheckDebian() {
+	total_c_code := 0
+	total_tested_package := 0
+
 	robot_dir, err := os.Getwd()
 	if err != nil {
 		log.Println("get current dir failed for :", err)
 	}
 
-	db, err := sql.Open("sqlite3", robot_dir+"/result/"+"debian.db")
+	db, err := sql.Open("sqlite3", robot_dir + "/result/debian.db")
 	if err != nil {
 		log.Println("init sqlite failed for :", err)
 	}
 
-	rows, err := db.Query("SELECT name, c FROM packages WHERE header > 0 AND c > (\"all\" * 0.1)")
+	rows, err := db.Query("SELECT DISTINCT name, c FROM packages WHERE header > 0 AND c > (\"all\" * 0.)")
 	if err != nil {
 		log.Println("sqlite query failed for :", err)
 	}
 
 	var name string
 	var c_code int
+	arrive := 0
 
-	for rows.Next() {
+	for rows.Next() { 
 		err = rows.Scan(&name, &c_code)
 		if err != nil {
 			log.Println("sqlite scan failed for :", err)
 		}
 
-		cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
-		err := cmd.Run()
-		if err != nil {
+		
+		if arrive == 0 && name != "cups-bjnp" {
+			log.Println(name)
+			continue
+		}
+		
+
+		if name == "cups-bjnp" {
+			log.Println(name)
+			arrive = 1
 			continue
 		}
 
-		pac_basename := name
-		pac_name := ""
 
-		output, err := exec.Command("python3", "debian_check.py", robot_dir, pac_basename).Output()
-		if err != nil {
-			log.Println("Debian check failed for :", err)
-		}
-		result := string(output)
-		log.Println(result)
-
-		dir, err := os.ReadDir(robot_dir + "/projects")
-		if err != nil {
-			log.Println("Read_Dir failed for :", err)
-		}
-
-		for _, entry := range dir {
-			name := entry.Name()
-			if entry.IsDir() && !strings.Contains(name, ".git") {
-				pac_name = name
-				break
+		if arrive == 1 {
+			cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
+			output, _ := cmd.CombinedOutput()
+			if strings.Contains(string(output), "Unable to locate package") {
+				continue
 			}
-		}
 
-		WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code), robot_dir + "/result/debian.txt")
-		MergeFile(robot_dir+"/projects/"+pac_name, robot_dir+"/result/"+"debian.txt")
+			total_tested_package += 1
+
+			pac_basename := name
+			pac_name := ""
+		
+			output, err := exec.Command("python3", "debian_check.py", robot_dir, pac_basename).Output()
+			if err != nil {
+				log.Println("Debian check failed for :", err)
+			}
+			result := string(output)
+			log.Println(result)
+			total_c_code += c_code
+
+			cmd = exec.Command("sudo", "chmod", "-R", "777", robot_dir)
+			cmd.Run()
+
+			dir, err := os.ReadDir(robot_dir + "/projects")
+			if err != nil {
+				log.Println("Read_Dir failed for :", err)
+			}
+
+			for _, entry := range dir {
+				name := entry.Name()
+				if entry.IsDir() && !strings.Contains(name, ".git") {
+					pac_name = name
+					break
+				}
+			}
+
+			WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code) + "\n", robot_dir + "/result/debian.txt")
+			MergeFile(robot_dir + "/projects/" + pac_name, robot_dir + "/result/debian.txt")
+
+			cmd = exec.Command("sudo", "rm", "-rf", robot_dir + "/projects")
+			cmd.Run()
+			cmd = exec.Command("sudo", "mkdir", robot_dir + "/projects")
+			cmd.Run()	
+		}
 	}
+	WriteFile("\nTotal Tested Packages: " + fmt.Sprint(total_tested_package) + "\n", robot_dir + "/result/debian.txt")
+	WriteFile("Total Tested C code: " + fmt.Sprint(total_c_code) + "\n", robot_dir + "/result/debian.txt")
 }
 
 // merge all the .smatch file into one

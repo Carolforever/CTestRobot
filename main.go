@@ -1,5 +1,8 @@
 package main
 
+import (
+)
+
 type Config struct {
 	Autoconf_Cmd string `json:"autoconf_cmd"`
 	Configure_Cmd string `json:"configure_cmd"`
