@@ -1,0 +1,2 @@
+version=4
+https://github.com/dharple/detox/tags .*/tags/v?(\d[\d.]+)\.tar\.(?:bz2|gz|xz)

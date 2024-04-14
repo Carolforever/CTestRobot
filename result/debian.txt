@@ -18383,3 +18383,148 @@ dcl-7.5.1	C_code:4393
 dclock-2.2.2	C_code:7766
 
 dcm2niix-1.0.20220720	C_code:3763
+
+dcmtk-3.6.7	C_code:47560
+
+dconf-0.40.0	C_code:9684
+
+dctrl-tools-2.24	C_code:3205
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/grep-dctrl/grep-dctrl.c:672 parse_prim() error: we previously assumed 'atom' could be null (see line 671)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/grep-dctrl/grep-dctrl.c:690 parse_prim() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/join-dctrl/join-dctrl.c:78 parse_opt() warn: was || intended here instead of &&?
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/join-dctrl/join-dctrl.c:149 parse_opt() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/fieldtrie.c:58 fieldtrie_insert_n() error: we previously assumed 'name' could be null (see line 56)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/fieldtrie.c:59 fieldtrie_insert_n() error: we previously assumed 'b' could be null (see line 54)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/para_bundle.c:36 bundle_slurp() error: we previously assumed 'sf' could be null (see line 34)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:49 para_init() error: we previously assumed 'para->fields' could be null (see line 47)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:94 register_field() error: we previously assumed 'para->fields' could be null (see line 90)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:149 para_parse_next() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:204 para_parse_next() error: we previously assumed 'field_datum' could be null (see line 203)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:219 para_parse_next() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:235 para_parse_next() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:254 para_parse_next() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/paragraph.c:269 para_parse_next() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/predicate.c:134 binary_predicate() error: we previously assumed 'rv' could be null (see line 133)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/predicate.c:157 predicate_NOT() error: we previously assumed 'rv' could be null (see line 156)
+/home/lsc/CTestRobot/projects/dctrl-tools-2.24/lib/predicate.c:167 predicate_ATOM() error: we previously assumed 'rv' could be null (see line 166)
+
+dd2-0.2.2	C_code:5952
+
+ddcci-driver-linux-0.4.4	C_code:4457
+
+ddccontrol-0.6.1	C_code:6656
+
+ddcui-0.3.0	C_code:4002
+
+ddcutil-1.4.1	C_code:49837
+
+ddd-3.3.12	C_code:266
+
+ddnet-16.4	C_code:34940
+
+ddpt-0.97	C_code:32130
+
+ddrutility-2.8	C_code:5463
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_diskutility.c:790 readsector() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_diskutility.c:886 readsector() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_diskutility.c:902 readsector() warn: if statement not indented
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_diskutility.c:1342 prepare_cdb() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:130 main() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:381 main() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:546 read_boot_sec_file() error: buffer overflow 'boot_sector.items.chJumpInstruction' 3 <= 3
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:551 read_boot_sec_file() error: buffer overflow 'boot_sector.items.chDummy' 4 <= 4
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:557 read_boot_sec_file() error: buffer overflow 'boot_sector.items.uchReserved' 3 <= 3
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:731 read_mft_file() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:934 read_mft_file() warn: curly braces intended?
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1068 processdata() warn: curly braces intended?
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1132 processdata() warn: curly braces intended?
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1316 process_bitmap_file() warn: if statement not indented
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1363 process_bitmap_file() error: uninitialized symbol 'position_bytes'.
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1363 process_bitmap_file() error: uninitialized symbol 'size_bytes'.
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsbitmap.c:1461 process_mft_domain() error: uninitialized symbol 'lowest'.
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:384 main() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:512 read_file() warn: if statement not indented
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:554 read_boot_sec_file() error: buffer overflow 'boot_sector.items.chJumpInstruction' 3 <= 3
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:559 read_boot_sec_file() error: buffer overflow 'boot_sector.items.chDummy' 4 <= 4
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:565 read_boot_sec_file() error: buffer overflow 'boot_sector.items.uchReserved' 3 <= 3
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:669 process_entry() warn: if statement not indented
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:1452 read_mft_entry() warn: curly braces intended?
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:1585 processdata() warn: curly braces intended?
+/home/lsc/CTestRobot/projects/ddrutility-2.8/ddru_ntfsfindbad.c:1649 processdata() warn: curly braces intended?
+
+dds2tar-2.5.2	C_code:2769
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds2tar.c:344 open_device() warn: statement has no effect 7
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds2tar.c:344 open_device() warn: was '== 0' instead of '='
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds2tar.c:373 strprefix() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds_extract.c:154 extract() warn: if statement not indented
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds_extract.c:528 dds_cmp() error: strcpy() 'name' too large for 'dp->n' (1010102 vs 120)
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds_extract.c:579 dds_cmp() warn: if statement not indented
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/dds_extract.c:607 dds_cmp() warn: possible memory leak of 'dl'
+/home/lsc/CTestRobot/projects/dds2tar-2.5.2/zf-cre-open.c:60 zfopen() warn: possible memory leak of 'b'
+
+deal-3.1.9	C_code:5725
+/home/lsc/CTestRobot/projects/deal-3.1.9/dealtypes.c:116 validHoldingNum() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/dist.c:577 shapeclass_compile() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/holdings.c:831 IDealHoldingProcedure() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/keywords.c:192 kw_setFromAnyProc() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/stat.c:162 tcl_sdev_command() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/stat.c:194 tcl_sdev_command() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/stat.c:321 tcl_correlate_command() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/stat.c:329 tcl_correlate_command() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/deal-3.1.9/tcl_deal.c:630 old_main() warn: ignoring unreachable code.
+/home/lsc/CTestRobot/projects/deal-3.1.9/tcl_deal.c:633 old_main() warn: ignoring unreachable code.
+
+dealer-20211121+ds	C_code:9912
+
+deap-1.3.1	C_code:1039
+
+deb-gview-0.3.0	C_code:2096
+
+debmake-doc-1.17	C_code:112
+
+deborphan-1.7.35	C_code:1483
+
+debsig-verify-0.28	C_code:1162
+
+debugbreak-1.0	C_code:33
+
+debugedit-5.0	C_code:7463
+
+dee-1.2.7+17.10.20170616	C_code:19831
+
+deepin-album-5.9.1+dfsg	C_code:2489
+
+deepin-calculator-5.7.21	C_code:8056
+
+deepin-log-viewer-5.9.7+ds1	C_code:1284
+
+deepin-qt5dxcb-plugin-5.0.65	C_code:594
+
+dejagnu-1.6.3	C_code:155
+
+delay-1.0	C_code:264
+
+deltarpm-3.6.3+dfsg	C_code:17788
+/home/lsc/CTestRobot/projects/deltarpm-3.6.3+dfsg/applydeltarpm.c:911 getblock() error: we previously assumed 'b' could be null (see line 907)
+/home/lsc/CTestRobot/projects/deltarpm-3.6.3+dfsg/makedeltarpm.c:1178 main() warn: inconsistent indenting
+
+delve-1.20.2	C_code:1902
+
+denemo-2.6.18	C_code:92949
+
+depqbf-5.01	C_code:21728
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:3237 update_empty_formula_watcher() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:7008 cover_by_assignment() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:7137 cover_by_clauses() warn: if statement not indented
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:7737 stop_resolution() warn: if statement not indented
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:8303 qpup_select_next_node() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:17547 qdpll_get_value() warn: inconsistent indenting
+/home/lsc/CTestRobot/projects/depqbf-5.01/qdpll.c:17659 qdpll_print() warn: inconsistent indenting
+
+desktop-file-utils-0.26	C_code:3934
+
+desmume-0.9.11	C_code:641
+
+desproxy-0.1.0~pre3	C_code:2616
+
+detachtty-11.0.0	C_code:1411

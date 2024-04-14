@@ -1,0 +1,19 @@
+Test-Command: detox -L
+Restrictions: superficial
+
+Test-Command: cp -a debian/tests/stuff $AUTOPKGTEST_TMP;
+              detox $AUTOPKGTEST_TMP/stuff/*;
+              ls $AUTOPKGTEST_TMP/stuff |
+              egrep -C 10 'Using_deadkeys_in_Brazilian_Portuguese_=_Portugues_com_acucar'
+
+Test-Command: cp -a debian/tests/stuff $AUTOPKGTEST_TMP;
+              detox -r -v -s iso8859_1 $AUTOPKGTEST_TMP/stuff/*;
+              ls $AUTOPKGTEST_TMP/stuff |
+              egrep -C 10 'Using_deadkeys_in_Brazilian_Portuguese_=_PortuguA_s_com_aA_A_car'
+
+# The following test will check #861537
+Test-Command: cp -a debian/tests/stuff $AUTOPKGTEST_TMP;
+              detox -f debian/tests/stuff/detox.conf -vs gnu $AUTOPKGTEST_TMP/stuff/*.txt;
+              ls $AUTOPKGTEST_TMP/stuff/*.txt | egrep -C 10 'mÉ_Æ.txt'
+
+Test-Command: echo Foo Bar | inline-detox -s iso8859_1 -v | egrep "Foo_Bar"

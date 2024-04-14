@@ -1,0 +1,66 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+
+# Maintainer files
+*.patch
+*~
+.idea
+aclocal.m4
+autom4te.cache/
+compile
+depcomp
+install-sh
+missing
+ylwrap
+
+# Dist Clean files
+Makefile
+Makefile.in
+config.h
+config.log
+config.status
+
+# Clean files
+detox
+inline-detox
+.deps/
+stamp-h1
+
+# Testing files
+lab/
+
+# Dist files
+/detox-*.tar.gz
+/detox-*.tar.bz2
+/detox-*.zip

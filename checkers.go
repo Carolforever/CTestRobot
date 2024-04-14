@@ -108,13 +108,13 @@ func CheckDebian() {
 		}
 
 		
-		if arrive == 0 && name != "cups-bjnp" {
+		if arrive == 0 && name != "dcm2niix" {
 			log.Println(name)
 			continue
 		}
 		
 
-		if name == "cups-bjnp" {
+		if name == "dcm2niix" {
 			log.Println(name)
 			arrive = 1
 			continue
