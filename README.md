@@ -15,7 +15,7 @@ Golang version : go1.20.5
 ### Install dependency
 
 ```
-# apt-get install gcc make sqlite3 libsqlite3-dev libdbd-sqlite3-perl libssl-dev libtry-tiny-perl dpkg-dev cppcheck python3 Sparse build-essential wget
+# apt-get install gcc make sqlite3 libsqlite3-dev libdbd-sqlite3-perl libssl-dev libtry-tiny-perl dpkg-dev cppcheck python3 sparse build-essential wget
 ```
 
 

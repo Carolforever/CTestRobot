@@ -36,7 +36,7 @@ func run_conf(config Config) {
 		log.Println("get current dir: failed for :", err)
 	}
 
-	output, err := exec.Command("python3", "run_conf.py", robot_dir+"/projects/"+config.Proj_Name, config.Autoconf_Cmd, config.Configure_Cmd).Output()
+	output, err := exec.Command("python3", robot_dir + "/py_scripts/run_conf.py", robot_dir+"/projects/"+config.Proj_Name, config.Autoconf_Cmd, config.Configure_Cmd).Output()
 	if err != nil {
 		log.Println("run_conf failed for :", err)
 	}
@@ -67,7 +67,7 @@ func CheckSmatch(config Config) {
 	smatch_dir := robot_dir + "/smatch/smatch"
 	cgcc_dir := robot_dir + "/smatch/cgcc"
 	//create .smatch file for every .c file
-	output, err := exec.Command("python3", "smatch_check.py", robot_dir+"/projects/"+config.Proj_Name, config.Make_Cmd, smatch_dir, cgcc_dir).Output()
+	output, err := exec.Command("python3", robot_dir + "/py_scripts/smatch_check.py", robot_dir+"/projects/"+config.Proj_Name, config.Make_Cmd, smatch_dir, cgcc_dir).Output()
 	if err != nil {
 		log.Println("Smatch_Check failed for :", err)
 	}
@@ -92,7 +92,7 @@ func CheckDebian() {
 		log.Println("init sqlite failed for :", err)
 	}
 
-	rows, err := db.Query("SELECT DISTINCT name, c FROM packages WHERE header > 0 AND c > (\"all\" * 0.)")
+	rows, err := db.Query("SELECT DISTINCT name, c FROM packages WHERE header > 0 AND c > (\"all\" * 0.4) AND c < 250000")
 	if err != nil {
 		log.Println("sqlite query failed for :", err)
 	}
@@ -107,14 +107,13 @@ func CheckDebian() {
 			log.Println("sqlite scan failed for :", err)
 		}
 
-		
-		if arrive == 0 && name != "dcm2niix" {
+		if arrive == 0 && name != "pg-catcheck" {
 			log.Println(name)
 			continue
 		}
 		
 
-		if name == "dcm2niix" {
+		if name == "pg-catcheck" {
 			log.Println(name)
 			arrive = 1
 			continue
@@ -133,7 +132,7 @@ func CheckDebian() {
 			pac_basename := name
 			pac_name := ""
 		
-			output, err := exec.Command("python3", "debian_check.py", robot_dir, pac_basename).Output()
+			output, err := exec.Command("python3", robot_dir + "/py_scripts/debian_check.py", robot_dir, pac_basename).Output()
 			if err != nil {
 				log.Println("Debian check failed for :", err)
 			}

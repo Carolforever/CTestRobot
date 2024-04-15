@@ -14,7 +14,7 @@ type Config struct {
 var Res =  make(chan string)
 
 func main() {
-	//botinit()
+	botinit()
 	//router()
 	CheckDebian()
 }

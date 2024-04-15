@@ -91,15 +91,19 @@ func botinit() {
 	}
 
 	_, err = RunCommand(robot_dir, "ls", "-l", "smatch")
+	if err == nil {
+		_, err = RunCommand(robot_dir, "rm", "-rf", "smatch")
+		if err != nil {
+			log.Println("rm smatch failed for :", err)
+		}
+	}
+	_, err = RunCommand(robot_dir, "git", "clone", "git@github.com:error27/smatch.git")
 	if err != nil {
-		_, err = RunCommand(robot_dir, "git", "clone", "git@github.com:error27/smatch.git")
-		if err != nil {
-			log.Println("clone smatch failed for :", err)
-		}
+		log.Println("clone smatch failed for :", err)
+	}
 
-		_, err = RunCommand(robot_dir + "/smatch", "make")
-		if err != nil {
-			log.Println("smatch make failed for :", err)
-		}
+	_, err = RunCommand(robot_dir + "/smatch", "make")
+	if err != nil {
+		log.Println("smatch make failed for :", err)
 	}
 }
