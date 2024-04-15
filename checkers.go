@@ -79,9 +79,6 @@ func CheckSmatch(config Config) {
 }
 
 func CheckDebian() {
-	total_c_code := 0
-	total_tested_package := 0
-
 	robot_dir, err := os.Getwd()
 	if err != nil {
 		log.Println("get current dir failed for :", err)
@@ -107,18 +104,16 @@ func CheckDebian() {
 			log.Println("sqlite scan failed for :", err)
 		}
 
-		if arrive == 0 && name != "pg-catcheck" {
+		if arrive == 0 && name != "waffle" {
 			log.Println(name)
 			continue
-		}
-		
+		}	
 
-		if name == "pg-catcheck" {
+		if name == "waffle" {
 			log.Println(name)
 			arrive = 1
 			continue
 		}
-
 
 		if arrive == 1 {
 			cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
@@ -126,8 +121,6 @@ func CheckDebian() {
 			if strings.Contains(string(output), "Unable to locate package") {
 				continue
 			}
-
-			total_tested_package += 1
 
 			pac_basename := name
 			pac_name := ""
@@ -138,7 +131,6 @@ func CheckDebian() {
 			}
 			result := string(output)
 			log.Println(result)
-			total_c_code += c_code
 
 			cmd = exec.Command("sudo", "chmod", "-R", "777", robot_dir)
 			cmd.Run()
@@ -150,7 +142,7 @@ func CheckDebian() {
 
 			for _, entry := range dir {
 				name := entry.Name()
-				if entry.IsDir() && !strings.Contains(name, ".git") {
+				if entry.IsDir() && !strings.HasSuffix(name, ".git") {
 					pac_name = name
 					break
 				}
@@ -159,14 +151,16 @@ func CheckDebian() {
 			WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code) + "\n", robot_dir + "/result/debian.txt")
 			MergeFile(robot_dir + "/projects/" + pac_name, robot_dir + "/result/debian.txt")
 
-			cmd = exec.Command("sudo", "rm", "-rf", robot_dir + "/projects")
-			cmd.Run()
-			cmd = exec.Command("sudo", "mkdir", robot_dir + "/projects")
-			cmd.Run()	
+			RunCommand(robot_dir + "/projects", "sudo", "rm", "-rf", "*")
 		}
 	}
-	WriteFile("\nTotal Tested Packages: " + fmt.Sprint(total_tested_package) + "\n", robot_dir + "/result/debian.txt")
-	WriteFile("Total Tested C code: " + fmt.Sprint(total_c_code) + "\n", robot_dir + "/result/debian.txt")
+
+	output, err := exec.Command("python3", robot_dir + "/py_scripts/secondary_treatment.py", robot_dir).Output()
+	if err != nil {
+		log.Println("secondary treatment failed for :", err)
+	}
+	result := string(output)
+	log.Println(result)
 }
 
 // merge all the .smatch file into one
