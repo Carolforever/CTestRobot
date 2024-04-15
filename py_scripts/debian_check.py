@@ -1,7 +1,6 @@
 import subprocess as sp
 import os
 import sys
-import sqlite3
 
 def run_command(filename, cmd):
     cp = sp.run(cmd, shell=True, capture_output=True, encoding='utf-8', timeout=480)
@@ -69,7 +68,11 @@ def main():
                 for line in f:
                     if "override_dh_auto_build:" in line:
                         override_dh_auto_build = True
-                            
+                      
+                    elif dh_auto_build_changed == False and "$(MAKE)" in line:
+                        line = line.replace("$(MAKE)", "$(MAKE) " + smatch_check_cmd + " ")
+                        dh_auto_build_changed = True
+                           
                     elif dh_auto_build_changed == False and "dh_auto_build --" in line:
                         line = line.replace("dh_auto_build --", "dh_auto_build -- " + smatch_check_cmd + " ")
                         dh_auto_build_changed = True
@@ -114,5 +117,8 @@ def main():
             print(f"[{filename}] : Build system is not suitable, skipping smatch check...")  
     else:
         print(f"[{filename}] : No .c or .h files found, skipping smatch check...")
+    
+    f.close()
+    sys.stdout = temp
     
 main()
