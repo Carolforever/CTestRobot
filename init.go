@@ -106,4 +106,17 @@ func botinit() {
 	if err != nil {
 		log.Println("smatch make failed for :", err)
 	}
+
+	_, err = RunCommand(robot_dir, "ls", "-l", "cloc_debian")
+	if err == nil {
+		_, err = RunCommand(robot_dir, "rm", "-rf", "cloc_debian")
+		if err != nil {
+			log.Println("rm cloc_dibian failed for :", err)
+		}
+	}
+
+	_, err = RunCommand(robot_dir, "git", "clone", "git@github.com:hust-open-atom-club/cloc-debian.git")
+	if err != nil {
+		log.Println("clone cloc_debian failed for :", err)
+	}
 }

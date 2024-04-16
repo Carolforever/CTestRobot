@@ -23,8 +23,7 @@ def search_files(directory):
                 return True
     return False
 
-def main(): 
-    
+def main():   
     robot_dir = sys.argv[1]
     package = sys.argv[2]
     
