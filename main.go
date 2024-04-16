@@ -15,6 +15,6 @@ var Res =  make(chan string)
 
 func main() {
 	botinit()
-	//router()
-	CheckDebian()
+	router()
+	//CheckDebian()
 }

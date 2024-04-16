@@ -96,63 +96,49 @@ func CheckDebian() {
 
 	var name string
 	var c_code int
-	arrive := 0
 
 	for rows.Next() { 
 		err = rows.Scan(&name, &c_code)
 		if err != nil {
 			log.Println("sqlite scan failed for :", err)
 		}
-
-		if arrive == 0 && name != "waffle" {
-			log.Println(name)
-			continue
-		}	
-
-		if name == "waffle" {
-			log.Println(name)
-			arrive = 1
+	
+		cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
+		output, _ := cmd.CombinedOutput()
+		if strings.Contains(string(output), "Unable to locate package") {
 			continue
 		}
 
-		if arrive == 1 {
-			cmd := exec.Command("sudo", "apt-cache", "showsrc", name)
-			output, _ := cmd.CombinedOutput()
-			if strings.Contains(string(output), "Unable to locate package") {
-				continue
-			}
-
-			pac_basename := name
-			pac_name := ""
+		pac_basename := name
+		pac_name := ""
 		
-			output, err := exec.Command("python3", robot_dir + "/py_scripts/debian_check.py", robot_dir, pac_basename).Output()
-			if err != nil {
-				log.Println("Debian check failed for :", err)
-			}
-			result := string(output)
-			log.Println(result)
-
-			cmd = exec.Command("sudo", "chmod", "-R", "777", robot_dir)
-			cmd.Run()
-
-			dir, err := os.ReadDir(robot_dir + "/projects")
-			if err != nil {
-				log.Println("Read_Dir failed for :", err)
-			}
-
-			for _, entry := range dir {
-				name := entry.Name()
-				if entry.IsDir() && !strings.HasSuffix(name, ".git") {
-					pac_name = name
-					break
-				}
-			}
-
-			WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code) + "\n", robot_dir + "/result/debian.txt")
-			MergeFile(robot_dir + "/projects/" + pac_name, robot_dir + "/result/debian.txt")
-
-			RunCommand(robot_dir + "/projects", "sudo", "rm", "-rf", "*")
+		output, err := exec.Command("python3", robot_dir + "/py_scripts/debian_check.py", robot_dir, pac_basename).Output()
+		if err != nil {
+			log.Println("Debian check failed for :", err)
 		}
+		result := string(output)
+		log.Println(result)
+
+		cmd = exec.Command("sudo", "chmod", "-R", "777", robot_dir)
+		cmd.Run()
+
+		dir, err := os.ReadDir(robot_dir + "/projects")
+		if err != nil {
+			log.Println("Read_Dir failed for :", err)
+		}
+
+		for _, entry := range dir {
+			name := entry.Name()
+			if entry.IsDir() && !strings.HasSuffix(name, ".git") {
+				pac_name = name
+				break
+			}
+		}
+
+		WriteFile("\n" + pac_name + "\tC_code:" + fmt.Sprint(c_code) + "\n", robot_dir + "/result/debian.txt")
+		MergeFile(robot_dir + "/projects/" + pac_name, robot_dir + "/result/debian.txt")
+
+		RunCommand(robot_dir + "/projects", "sudo", "rm", "-rf", "*")
 	}
 
 	output, err := exec.Command("python3", robot_dir + "/py_scripts/secondary_treatment.py", robot_dir).Output()
