@@ -25,7 +25,7 @@ def merge(robot_dir, dir):
                         output_file.close()
                 file.close()
 
-def remove_duplicate_lines(robot_dir):
+def remove_useless_lines(robot_dir):
     with open(robot_dir + "/result/simplified_debian.txt", 'r') as file:
         lines = file.readlines()
         with open(robot_dir + "/result/only_error_debian.txt", 'w', encoding="utf-8") as output_file:
@@ -33,6 +33,8 @@ def remove_duplicate_lines(robot_dir):
             for i in range(len(lines)):
                 line = lines[i]
                 if line.strip() == "" and pre_line.strip() == "":
+                    continue
+                if "trouble parsing" in line or "parse error:" in line:
                     continue
                 output_file.write(line)
                 pre_line = line
@@ -51,7 +53,7 @@ def improve_result(robot_dir):
         tested_package = 0
         
         for line in file:
-            if ("warn" in line or "error" in line) and "C_code" in pre_line:
+            if ("warn:" in line or "error:" in line) and "C_code:" in pre_line:
                 code_index = pre_line.index("C_code:") + len("C_code:")
                 code_number = int(pre_line[code_index:].strip())
                 
@@ -59,7 +61,7 @@ def improve_result(robot_dir):
                 tested_package += 1
                 
             
-            if "C_code" in line or "error" in line or line.strip() == "":
+            if "C_code:" in line or "error:" in line or line.strip() == "":
                 with open(robot_dir + "/result/error_debian.txt", 'a+', encoding="utf-8") as file:
                     file.write(line)
                     file.close()
@@ -79,7 +81,7 @@ def improve_result(robot_dir):
             pre_line = ""
             for i in range(len(lines)):
                 line = lines[i]
-                if "C_code" in line and pre_line == "\n" and i+1 < len(lines) and lines[i+1] == "\n":
+                if "C_code:" in line and pre_line == "\n" and i+1 < len(lines) and lines[i+1] == "\n":
                     output_file.write("\n")
                 else:
                     output_file.write(line)
@@ -87,7 +89,7 @@ def improve_result(robot_dir):
         output_file.close()
     file.close()
 
-    remove_duplicate_lines(robot_dir)
+    remove_useless_lines(robot_dir)
     
     
 def main(): 
